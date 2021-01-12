@@ -1,2 +1,10 @@
-const Register = () => <h1>Register</h1>;
+import RegisterForm from "../../components/register-form";
+
+const Register = () => {
+  return (
+    <>
+      <RegisterForm />
+    </>
+  );
+};
 export default Register;
