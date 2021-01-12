@@ -1,31 +1,30 @@
-import LoginForm from "../login-form"
+import LoginForm from "../login-form";
 import RegisterForm from "../register-form";
-import SideImage from "../side-image";
 import SideRedirect from "../side-redirect";
+import SideFormLogo from "../side-form-logo";
+import { SideFormContainer } from "./styles";
 
-const SideForm = ({type}) =>{
-
+const SideForm = ({ type }) => {
   const TypeDecider = (type) => {
-    switch(type){
+    switch (type) {
       case "login":
-        return <LoginForm/>;
+        return <LoginForm />;
 
-        case "register":
-          return <RegisterForm/>;
+      case "register":
+        return <RegisterForm />;
 
       default:
-      return <div>nada</div>
+        return <div>nada</div>;
     }
-  }
+  };
 
-  
+  return (
+    <SideFormContainer>
+      <SideFormLogo />
+      {TypeDecider(type)}
+      <SideRedirect type={type} />
+    </SideFormContainer>
+  );
+};
 
-  return (<>
-  <SideImage/>
-    {TypeDecider(type)}
-    <SideRedirect type={type}/>
-    </>
-  )
-}
-
-export default SideForm
+export default SideForm;
