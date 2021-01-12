@@ -62,6 +62,7 @@ export default function SplitButton() {
           size="small"
           ref={anchorRef}
           aria-label="split button"
+          style={{ height: "30px" }}
         >
           <Button onClick={handleClick}>{options[selectedIndex]}</Button>
           <Button
@@ -72,6 +73,7 @@ export default function SplitButton() {
             aria-label="select merge strategy"
             aria-haspopup="menu"
             onClick={handleToggle}
+            style={{ height: "30px" }}
           >
             <MenuIcon />
           </Button>
