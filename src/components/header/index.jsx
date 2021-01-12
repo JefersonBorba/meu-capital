@@ -4,7 +4,7 @@ import {
   Container,
   Content,
   Profile,
-  Title,
+  Name,
   ImageProfile,
   StyledContent,
   InputStyled,
@@ -13,18 +13,18 @@ import {
 
 import logo from "../../assets/img/logo.svg";
 
-const Header = () => (
+const Header = ({ title }) => (
   <Container>
     <Content>
       <img src={logo} alt="logo" />
-      <h1>Title</h1>
+      <h1>{title}</h1>
       <StyledContent>
         <Profile>
           <ImageProfile
             src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
             alt="profile"
           />
-          <Title>Fulano</Title>
+          <Name>Fulano</Name>
         </Profile>
         <InputStyled>
           <Input placeholder="Search" />

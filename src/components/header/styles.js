@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  font-family: Ubuntu;
   width: 100%;
   height: 50px;
   background: #1d1d42;
@@ -19,6 +20,16 @@ export const Content = styled.div`
     width: 30px;
     height: 30px;
   }
+
+  h1 {
+    font-size: 33px;
+  }
+
+  @media (max-width: 507px) {
+    h1 {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const Profile = styled.div`
@@ -32,13 +43,17 @@ export const ImageProfile = styled.img`
   margin-right: 15px;
 `;
 
-export const Title = styled.h2`
-  font-size: 33.43px;
+export const Name = styled.h2`
+  font-size: 30.43px;
+  margin-right: 30px;
+
+  @media (max-width: 675px) {
+    display: none;
+  }
 `;
 
 export const StyledContent = styled.div`
   display: flex;
-  width: 450px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -55,10 +70,14 @@ export const InputStyled = styled.div`
     width: 15px;
     color: #dedede;
   }
+
+  @media (max-width: 507px) {
+    display: none;
+  }
 `;
 
 export const Input = styled.input`
-  width: 200px;
+  width: 100%;
   height: 25px;
   padding-left: 15px;
 

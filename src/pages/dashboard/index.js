@@ -2,7 +2,7 @@ import Header from "../../components/header";
 
 const Dashboard = () => (
   <>
-    <Header />
+    <Header title="Dashboard" />
     <h1>Dashboard</h1>
   </>
 );
