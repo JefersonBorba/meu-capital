@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import TextField from "@material-ui/core/TextField";
+import { FormContainer } from "./styles";
 
 const LoginForm = () => {
   const schema = yup.object().shape({
@@ -28,7 +29,7 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <FormContainer>
       <form onSubmit={handleSubmit(handleForm)}>
         <div>
           <TextField
@@ -61,7 +62,7 @@ const LoginForm = () => {
           <button>Entrar</button>
         </div>
       </form>
-    </>
+    </FormContainer>
   );
 };
 
