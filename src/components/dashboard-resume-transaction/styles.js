@@ -4,6 +4,8 @@ export const Container = styled.div`
   width: 200px;
   border-radius: 10px;
   margin-bottom: 20px;
+  background-color: #1d1d42;
+  color: white;
 `;
 export const Content = styled.div``;
 
