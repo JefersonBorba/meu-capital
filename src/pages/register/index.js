@@ -1,2 +1,4 @@
-const Register = () => <h1>Register</h1>;
+const Register = () => {
+    return <div>Olá rafa!</div>
+};
 export default Register;
