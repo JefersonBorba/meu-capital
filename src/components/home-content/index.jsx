@@ -21,7 +21,7 @@ const HomeContent = () => {
             fermentum ante. In hac habitasse platea dictumst. Sed sagittis ex
             sit amet consequat sollicitudin. Pellentesque habitant morbi
             tristique senectus et netus et malesuada fames ac turpis egestas.
-            Donec lobortis mi lacinia lacus condimentum feugiat.
+            Donec lobortis mi lacinia lacus condimentum feugiat
           </p>
         </StyledTextContainer>
       </StyledContainer>
