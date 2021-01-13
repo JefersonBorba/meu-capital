@@ -3,8 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-import TextField from "@material-ui/core/TextField";
-import { FormContainer, LabelStyled, TextFieldConteiner } from "./styles";
+import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const LoginForm = () => {
   const schema = yup.object().shape({
@@ -31,32 +30,29 @@ const LoginForm = () => {
   return (
     <FormContainer>
       <form onSubmit={handleSubmit(handleForm)}>
-        <div>
-        <LabelStyled> E-mail</LabelStyled>
-          <TextFieldConteiner
-            size="small"
-            margin="dense"
-            name="email"
-            inputRef={register}
-            fullWidth
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-        </div>
-        <div>
-        <LabelStyled> Senha</LabelStyled>
-          <TextFieldConteiner
-            type="password"
-            size="small"
-            margin="dense"
-            variant="outlined"
-            name="password"
-            inputRef={register}
-            fullWidth
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-        </div>
+        <InputContainer>
+        <LabelStyled htmlFor='email'> E-mail</LabelStyled>
+        <input 
+          ref={register}  
+          name="email" 
+          id="email" 
+          type="text" 
+          placeholder="Digite seu email."
+        />
+        {errors.email && <p className="error">{errors.email.message}</p>}
+          
+        </InputContainer>
+        <InputContainer>
+        <LabelStyled htmlFor='password'> Senha</LabelStyled>
+        <input 
+          ref={register}  
+          name="password" 
+          id='password'
+          type="text"
+          placeholder="Digite sua Senha."
+        />
+        {errors.password && <p className="error">{errors.password.message}</p>}
+        </InputContainer>
         <div>
           <button>Entrar</button>
         </div>

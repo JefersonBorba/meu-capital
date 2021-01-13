@@ -1,40 +1,71 @@
 import styled from "styled-components";
-import { TextField } from "@material-ui/core";
 
 export const FormContainer = styled.div`
   width: 50vw;
-  form{
+  margin-bottom: 12px;
+  form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  button{
+  button {
     width: 50vw;
-    padding:10px;
+    padding: 10px;
 
-    border:none;
-    outline:none;
+    border: none;
+    outline: none;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    border-radius:15px;
+    border-radius: 15px;
+
+    background-color: #5CB245;
+    color: #fff;
+
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight:700;
+
+    letter-spacing: 2px;
   }
-`;
 
-export const TextFieldConteiner = styled(TextField)`
-  border-radius: 5px;
-  background-color: #fff;
-  
-  input {
-  font-size: 1.5rem;
-    padding: 5px;
-  }
 `;
 
 export const LabelStyled = styled.label`
   color: #fff;
   font-weight: 100;
   font-family: "Ubuntu", sans-serif;
+
+  margin-bottom: 8px;
 `;
+
+export const InputContainer = styled.div`
+  margin-bottom:15px;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+
+  input {
+    padding: 5px;
+    margin-bottom: 3px;
+
+    border-radius: 3px;
+    border: none;
+    outline: none;
+
+    font-size: 1.15rem;
+  }
+
+  p {
+    color:#fff;
+    background-color: #E9666D;
+    padding: 3px;
+    text-align: center;
+    border-radius: 3px;
+    font-size:0.85rem;
+    font-family: "Ubuntu", sans-serif;
+  }
+`;
+
