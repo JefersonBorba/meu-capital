@@ -1,12 +1,14 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import TextField from "@material-ui/core/TextField";
-import { FormContainer, LabelStyled, TextFieldConteiner } from "./styles";
+import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const LoginForm = () => {
+  const history = useHistory()
+
   const schema = yup.object().shape({
     email: yup
       .string("Formato inválido")
@@ -25,38 +27,39 @@ const LoginForm = () => {
       .then((res) => {
         console.log(res);
       })
+      .then(()=>{
+        history.push('/dashboard')
+      })
       .catch((err) => console.error(err));
   };
 
   return (
     <FormContainer>
       <form onSubmit={handleSubmit(handleForm)}>
-        <div>
-        <LabelStyled> E-mail</LabelStyled>
-          <TextFieldConteiner
-            size="small"
-            margin="dense"
+        <InputContainer>
+          <LabelStyled htmlFor="email"> E-mail</LabelStyled>
+          <input
+            ref={register}
             name="email"
-            inputRef={register}
-            fullWidth
-            error={!!errors.email}
-            helperText={errors.email?.message}
+            id="email"
+            type="text"
+            placeholder="Digite seu email."
           />
-        </div>
-        <div>
-        <LabelStyled> Senha</LabelStyled>
-          <TextFieldConteiner
-            type="password"
-            size="small"
-            margin="dense"
-            variant="outlined"
+          {errors.email && <p className="error">{errors.email.message}</p>}
+        </InputContainer>
+        <InputContainer>
+          <LabelStyled htmlFor="password"> Senha</LabelStyled>
+          <input
+            ref={register}
             name="password"
-            inputRef={register}
-            fullWidth
-            error={!!errors.password}
-            helperText={errors.password?.message}
+            id="password"
+            type="text"
+            placeholder="Digite sua Senha."
           />
-        </div>
+          {errors.password && (
+            <p className="error">{errors.password.message}</p>
+          )}
+        </InputContainer>
         <div>
           <button>Entrar</button>
         </div>

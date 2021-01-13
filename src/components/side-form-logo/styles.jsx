@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const LogoContainer = styled.figure`
+  margin-bottom: 35px;
+  
   a {
     display: flex;
     flex-direction: column;
@@ -10,19 +12,17 @@ export const LogoContainer = styled.figure`
     font-family: "Ubuntu", sans-serif;
     color: #fff;
 
-    img,
-    figcaption,
-    span {
-      margin-bottom: 15px;
+    img {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 100px;
     }
-  }
 
-  img {
-    margin: 0 auto;
-    width: 100px;
-  }
+    figcaption {
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
 
-  figcaption {
-    font-size: 2rem;
+
   }
 `;
