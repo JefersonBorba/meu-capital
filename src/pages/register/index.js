@@ -1,10 +1,13 @@
-import RegisterForm from "../../components/register-form";
+import SideForm from "../../components/side-form";
+import SideImage from "../../components/side-image";
+import { LoginContainer } from "./styles";
 
 const Register = () => {
   return (
-    <>
-      <RegisterForm />
-    </>
+    <LoginContainer>
+      <SideForm type='register'/>
+      <SideImage type='register'/>
+    </LoginContainer>
   );
 };
 export default Register;

@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <LoginContainer>
       <SideForm type='login'/>
-      <SideImage/>
+      <SideImage type='login' />
       
     </LoginContainer>
   );
