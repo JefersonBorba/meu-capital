@@ -10,7 +10,7 @@ export const SideFormContainer = styled.div`
   justify-content: center;
   background-color: #1D1D42;
 
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     width:40vw;
   }
 `;

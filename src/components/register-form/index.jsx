@@ -1,11 +1,14 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const RegisterForm = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     name: yup
       .string()
@@ -33,6 +36,9 @@ const RegisterForm = () => {
       .then((res) => {
         console.log(res);
       })
+      .then(() => {
+        history.push('/login')
+      })
       .catch((err) => console.error(err));
   };
 
@@ -40,48 +46,54 @@ const RegisterForm = () => {
     <FormContainer>
       <form onSubmit={handleSubmit(handleForm)}>
         <InputContainer>
-        <LabelStyled htmlFor='name'>Nome</LabelStyled>
-        <input 
-          ref={register}  
-          name="name" 
-          id="name" 
-          type="text" 
-          placeholder="Digite seu nome."
-        />
-        {errors.nome && <p className="error">{errors.name.message}</p>}
+          <LabelStyled htmlFor="name">Nome</LabelStyled>
+          <input
+            ref={register}
+            name="name"
+            id="name"
+            type="text"
+            placeholder="Digite seu nome."
+          />
+          {errors.nome && <p className="error">{errors.name.message}</p>}
         </InputContainer>
         <InputContainer>
-        <LabelStyled htmlFor='email'> E-mail</LabelStyled>
-        <input 
-          ref={register}  
-          name="email" 
-          id="email" 
-          type="text" 
-          placeholder="Digite seu email."
-        />
-        {errors.email && <p className="error">{errors.email.message}</p>}
+          <LabelStyled htmlFor="email"> E-mail</LabelStyled>
+          <input
+            ref={register}
+            name="email"
+            id="email"
+            type="text"
+            placeholder="Digite seu email."
+          />
+          {errors.email && <p className="error">{errors.email.message}</p>}
         </InputContainer>
         <InputContainer>
-        <LabelStyled htmlFor='password'>Senha</LabelStyled>
-        <input 
-          ref={register}  
-          name="password" 
-          id="password" 
-          type="text" 
-          placeholder="Digite sua senha."
-        />
-        {errors.password && <p className="error">{errors.password.message}</p>}
+          <LabelStyled htmlFor="password">Senha</LabelStyled>
+          <input
+            ref={register}
+            name="password"
+            id="password"
+            type="text"
+            placeholder="Digite sua senha."
+          />
+          {errors.password && (
+            <p className="error">{errors.password.message}</p>
+          )}
         </InputContainer>
         <InputContainer>
-        <LabelStyled htmlFor='passwordConfirm'>Confirmação de Senha</LabelStyled>
-        <input 
-          ref={register}  
-          name="passwordConfirm" 
-          id="passwordConfirm" 
-          type="text" 
-          placeholder="Confirme sua senha"
-        />
-        {errors.passwordConfirm && <p className="error">{errors.passwordConfirm.message}</p>}
+          <LabelStyled htmlFor="passwordConfirm">
+            Confirmação de Senha
+          </LabelStyled>
+          <input
+            ref={register}
+            name="passwordConfirm"
+            id="passwordConfirm"
+            type="text"
+            placeholder="Confirme sua senha"
+          />
+          {errors.passwordConfirm && (
+            <p className="error">{errors.passwordConfirm.message}</p>
+          )}
         </InputContainer>
         <div>
           <button>Cadastrar</button>
