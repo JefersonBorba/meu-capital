@@ -9,7 +9,7 @@ const ResumeTransaction = () => {
         {exemple.map((item, index) => (
           <Card key={index}>
             <img
-              src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+              src="http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
               alt="profile"
             />
             <div>

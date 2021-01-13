@@ -8,14 +8,16 @@ export const Container = styled.div`
     align-items: center;
     background-color: #141432;
     width: 55vw;
-    height: 100%;
+    height: 60vh;
     border-radius: 30px;
+    margin: 30px;
     h3{
         color: white;
     }
     @media only screen and (max-width: 900px) {
         flex-direction: column;
         width: 80vw;
+        height: 100%;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
@@ -37,7 +39,7 @@ export const GraphContainer = styled.div`
 
 export const ExpensesContainer = styled.div`
     width: 40%;
-    height: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
