@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import TextField from "@material-ui/core/TextField";
-import { FormContainer } from "./styles";
+import { FormContainer, LabelStyled, TextFieldConteiner } from "./styles";
 
 const LoginForm = () => {
   const schema = yup.object().shape({
@@ -32,11 +32,10 @@ const LoginForm = () => {
     <FormContainer>
       <form onSubmit={handleSubmit(handleForm)}>
         <div>
-          <TextField
+        <LabelStyled> E-mail</LabelStyled>
+          <TextFieldConteiner
             size="small"
             margin="dense"
-            variant="outlined"
-            label="E-mail"
             name="email"
             inputRef={register}
             fullWidth
@@ -45,12 +44,12 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <TextField
+        <LabelStyled> Senha</LabelStyled>
+          <TextFieldConteiner
             type="password"
             size="small"
             margin="dense"
             variant="outlined"
-            label="Senha"
             name="password"
             inputRef={register}
             fullWidth
