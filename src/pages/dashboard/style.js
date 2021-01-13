@@ -10,11 +10,17 @@ export const RightContainer = styled.div`
 `;
 
 export const Breakable = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 2%;
     @media only screen and (max-width: 900px) {
         flex-direction: column;
         align-items: center;
     }
+`;
+export const Graphs = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
