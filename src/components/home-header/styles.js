@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledDiv = styled.div`
-  background: #183161;
+  background: #1d1d42;
   height: 40px;
   display: flex;
   justify-content: space-between;
