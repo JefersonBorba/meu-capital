@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-left: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #141432;
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 30px;
-  margin: 30px;
+  margin: 0 20px;
 
   @media only screen and (max-width: 900px) {
     flex-direction: column;
@@ -18,19 +17,20 @@ export const Container = styled.div`
     height: 100%;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
   }
   @media only screen and (max-width: 500px) {
     width: 60vw;
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  width: 80%;
+`;
 
 export const Card = styled.div`
   padding: 10px;
   color: white;
-  width: 50vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
