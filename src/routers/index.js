@@ -3,6 +3,7 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Home from "../pages/home";
 import Dashboard from "../pages/dashboard";
+import Goals from "../pages/goals"
 
 const Routers = () => (
   <Switch>
@@ -14,6 +15,9 @@ const Routers = () => (
     </Route>
     <Route path="/dashboard">
       <Dashboard />
+    </Route>
+    <Route path="/metas">
+      <Goals />
     </Route>
     <Route exact path="/">
       <Home />
