@@ -2,12 +2,14 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { authenticatedUserThunk } from "../../store/modules/authenticated-user/thunk";
+import { useDispatch } from "react-redux";
 
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const LoginForm = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const schema = yup.object().shape({
     email: yup
@@ -22,15 +24,7 @@ const LoginForm = () => {
   });
 
   const handleForm = (data) => {
-    axios
-      .post("https://meucapital.herokuapp.com/login", data)
-      .then((res) => {
-        console.log(res);
-      })
-      .then(() => {
-        history.push("/dashboard");
-      })
-      .catch((err) => console.error(err));
+    dispatch(authenticatedUserThunk(data, history));
   };
 
   return (
