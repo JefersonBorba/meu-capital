@@ -25,7 +25,7 @@ export const Content = styled.div`
     font-size: 33px;
   }
 
-  @media (max-width: 507px) {
+  @media (max-width: 425px) {
     h1 {
       font-size: 20px;
     }
@@ -47,7 +47,7 @@ export const Name = styled.h2`
   font-size: 30.43px;
   margin-right: 30px;
 
-  @media (max-width: 675px) {
+  @media (max-width: 425px) {
     display: none;
   }
 `;
@@ -71,7 +71,7 @@ export const InputStyled = styled.div`
     color: #dedede;
   }
 
-  @media (max-width: 507px) {
+  @media (max-width: 425px) {
     display: none;
   }
 `;

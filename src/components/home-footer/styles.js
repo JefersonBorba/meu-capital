@@ -1,27 +1,29 @@
 import styled from "styled-components";
 
 export const StyledDiv = styled.div`
-  background: #183161;
-  height: 80px;
+  background: #1d1d42;
+  height: 120px;
   display: flex;
   flex-direction: column;
   padding: 10px 6px;
+  font-family: Ubuntu, monospace;
+  color: white;
+  text-align: center;
 
-  div {
-    text-align: center;
-    font-family: Ubuntu, monospace;
-    color: white;
+  .copyright {
+    margin: 10px 0;
   }
 `;
 
 export const StyledSocialDiv = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  width: 80%;
   margin: auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
 
-  img {
-    padding-bottom: 10px;
-    height: 80%;
+  @media (min-width: 425px) {
+    width: 340px;
   }
 `;
