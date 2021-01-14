@@ -5,18 +5,36 @@ import {
   StyledImageContainer,
 } from "./styles";
 
-const HomeContent = ({ img, alt, title, paragraph }) => {
+import { Slide } from "react-awesome-reveal";
+
+const HomeContent = ({ img, alt, title, paragraph, variant = false }) => {
   return (
     <StyledDiv>
-      <StyledContainer>
-        <StyledImageContainer>
-          <img src={img} alt={alt}></img>
-        </StyledImageContainer>
-        <StyledTextContainer>
-          <h1>{title}</h1>
-          <p>{paragraph}</p>
-        </StyledTextContainer>
-      </StyledContainer>
+      {variant ? (
+        <StyledContainer>
+          <StyledImageContainer>
+            <Slide triggerOnce duration="2000">
+              <img src={img} alt={alt} className="img" />
+            </Slide>
+          </StyledImageContainer>
+          <StyledTextContainer>
+            <h1>{title}</h1>
+            <p>{paragraph}</p>
+          </StyledTextContainer>
+        </StyledContainer>
+      ) : (
+        <StyledContainer>
+          <StyledTextContainer>
+            <h1>{title}</h1>
+            <p>{paragraph}</p>
+          </StyledTextContainer>
+          <StyledImageContainer>
+            <Slide triggerOnce duration="2000" direction="right">
+              <img src={img} alt={alt} className="img" />
+            </Slide>
+          </StyledImageContainer>
+        </StyledContainer>
+      )}
     </StyledDiv>
   );
 };

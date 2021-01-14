@@ -7,14 +7,14 @@ import axios from "axios";
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const LoginForm = () => {
-  const history = useHistory()
+  const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup
-      .string("Formato inválido")
-      .email("E-mail inválido")
-      .required("Campo obrigatório"),
-    password: yup.string().required("Campo obrigatório"),
+      .string("Formato inválido!")
+      .email("E-mail inválido!")
+      .required("Campo obrigatório!"),
+    password: yup.string().required("Campo obrigatório!"),
   });
 
   const { register, handleSubmit, errors } = useForm({
@@ -27,8 +27,8 @@ const LoginForm = () => {
       .then((res) => {
         console.log(res);
       })
-      .then(()=>{
-        history.push('/dashboard')
+      .then(() => {
+        history.push("/dashboard");
       })
       .catch((err) => console.error(err));
   };
@@ -43,7 +43,7 @@ const LoginForm = () => {
             name="email"
             id="email"
             type="text"
-            placeholder="Digite seu email."
+            placeholder="Digite seu email"
           />
           {errors.email && <p className="error">{errors.email.message}</p>}
         </InputContainer>
@@ -54,7 +54,7 @@ const LoginForm = () => {
             name="password"
             id="password"
             type="text"
-            placeholder="Digite sua Senha."
+            placeholder="Digite sua Senha"
           />
           {errors.password && (
             <p className="error">{errors.password.message}</p>

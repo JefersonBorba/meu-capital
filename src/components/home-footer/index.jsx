@@ -11,7 +11,7 @@ const HomeFooter = () => {
         <TwitterIcon />
         <LinkedInIcon />
       </StyledSocialDiv>
-      <div>© Meu Capital, Inc. 2020.</div>
+      <div className="copyright">© Meu Capital, Inc. 2020.</div>
     </StyledDiv>
   );
 };
