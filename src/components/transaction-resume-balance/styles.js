@@ -7,6 +7,7 @@ export const Container = styled.div`
   margin: 20px 0;
   background-color: #1d1d42;
   color: white;
+  margin-bottom: 30px;
 `;
 export const Content = styled.div`
   padding: 15px;
