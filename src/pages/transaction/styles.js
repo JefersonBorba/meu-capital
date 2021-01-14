@@ -12,8 +12,10 @@ export const RightContainer = styled.div`
 export const Breakable = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
   margin-right: 2%;
+  margin-top: 30px;
+
   @media only screen and (max-width: 900px) {
     flex-direction: column;
     align-items: center;
