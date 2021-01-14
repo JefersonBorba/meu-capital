@@ -3,7 +3,8 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Home from "../pages/home";
 import Dashboard from "../pages/dashboard";
-import Goals from "../pages/goals"
+import Goals from "../pages/goals";
+import Transaction from "../pages/transaction";
 
 const Routers = () => (
   <Switch>
@@ -18,6 +19,9 @@ const Routers = () => (
     </Route>
     <Route path="/metas">
       <Goals />
+    </Route>
+    <Route path="/transacoes">
+      <Transaction />
     </Route>
     <Route exact path="/">
       <Home />
