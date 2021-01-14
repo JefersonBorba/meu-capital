@@ -22,6 +22,11 @@ export const StyledDiv = styled.div`
   .boxContainer {
     @media (min-width: 768px) {
       display: flex;
+      justify-content: space-around;
+    }
+
+    @media (min-width: 1360px) {
+      justify-content: center;
     }
   }
 `;

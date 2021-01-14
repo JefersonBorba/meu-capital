@@ -25,13 +25,19 @@ export const StyledImageContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  img {
+  .img {
     max-width: 100%;
-    height: auto;
+    display: flex;
+    justify-content: center;
   }
 
   @media (min-width: 425px) {
     height: 310px;
+
+    .img {
+      margin: auto;
+      height: 100%;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -40,6 +46,7 @@ export const StyledImageContainer = styled.div`
 
   @media (min-width: 1360px) {
     height: 460px;
+    width: 60%;
   }
 `;
 
@@ -82,6 +89,6 @@ export const StyledTextContainer = styled.div`
   }
 
   @media (min-width: 1360px) {
-    width: 750px;
+    width: 40%;
   }
 `;

@@ -24,7 +24,7 @@ const HomeHeader = () => {
       <StyledNormalButtonContainer>
         <Button
           component={Link}
-          to="/register"
+          to="/login"
           size="small"
           variant="contained"
           color="primary"
@@ -34,7 +34,7 @@ const HomeHeader = () => {
         </Button>
         <Button
           component={Link}
-          to="/login"
+          to="/register"
           size="small"
           variant="contained"
           color="primary"
