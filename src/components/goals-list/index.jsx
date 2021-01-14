@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Container, GoalItem, RightContainer, Button, CashAvailable, CategoryName, Header, AddGoal, PopoverItem, Modal } from "./style"
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -24,6 +24,16 @@ const GoalsList = () => {
             name: 'Educação', available: 4000, spent: 2400, categoryicon: "http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
         },
       ])
+    const [width, setWidth] = useState(window.innerWidth);
+    const updateWidthAndHeight = () => {
+        setWidth(window.innerWidth);
+        
+        };
+    
+    useEffect(() => {
+        window.addEventListener("resize", updateWidthAndHeight);
+        return () => window.removeEventListener("resize", updateWidthAndHeight);
+    });
     const handleCategorySelected = (name) => {
         setModalAddCategory(false);
         setModalAddValue(true);
@@ -50,12 +60,14 @@ const GoalsList = () => {
             name: 'Outros', categoryicon: "http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
         },
       ];
-    return <Container>
+    return <Container style={{width: width < 700 && "75vw"}}>
         <Header>
             <h2>Metas</h2>
             <AddGoal onClick={() => setModalAddCategory(true)}><AiOutlinePlus fill="white" size="30" cursor="pointer"/></AddGoal>
         </Header>
-        {modalAddCategory && <Modal className={showCategories ? "showCategories" : "dontShowCategories"}>
+        {modalAddCategory && <Modal style={{width: width < 450 && "80vw"}}
+        className={showCategories ? "showCategories" : "dontShowCategories"}
+        >
             <IoMdClose onClick={() => setModalAddCategory(false)} fill="white" size="20px" style={{right: "10px", top:"10px", position:"absolute"}} cursor="pointer"/>
             <h3 >Nova Meta</h3>
             <h2>Selecione uma Categoria</h2>
@@ -77,7 +89,7 @@ const GoalsList = () => {
                 showCategories ? setShowCategories(false) : setShowCategories(true);
             }} style={{transform: showCategories && "rotate(180deg)", transition: "transform .5s"}}/>
         </Modal>}
-        {modalAddValue && <Modal style={{height: "40vh"}}>
+        {modalAddValue && <Modal style={{height: "40vh", width: width < 450 && "80vw"}}>
             <IoMdClose onClick={() => setModalAddValue(false)} fill="white" size="20px" style={{right: "10px", top:"10px", position:"absolute"}} cursor="pointer"/>
             <h3 >{currentItem.category ? currentItem.category : "Categoria não selecionada"}</h3>
             <h2>Defina um valor</h2>
@@ -86,8 +98,8 @@ const GoalsList = () => {
                 <h2>Salvar</h2>
             </ Button>
         </Modal>}
-        {data.map((data) => (<GoalItem>
-            <CategoryName>
+        {data.map((data) => (<GoalItem >
+            <CategoryName style={{flexDirection: width < 400 && "column"}}>
                 <img src={data.categoryicon} alt={data.name}/>
                 <h3>{data.name}</h3>
             </CategoryName>

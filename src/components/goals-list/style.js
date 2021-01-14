@@ -100,7 +100,7 @@ export const Modal = styled.div`
     align-items: center;
     justify-content: space-evenly;
     input{
-        width: 250px;
+        width: 75%;
         height: 50px;
         border-radius: 20px;
         border: 0;
@@ -114,7 +114,7 @@ export const Modal = styled.div`
     }
 `;
 export const Button = styled.div`
-    width: 250px;
+    width: 75%;
     height: 50px;
     background-color: #6dfa7b;
     color: white;
