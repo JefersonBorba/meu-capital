@@ -75,3 +75,8 @@ export const StyledPaper = styled(Paper)`
   color: white !important;
   border: 1px solid white !important;
 `;
+
+export const StyledNormalButtonContainerVisible = styled.div`
+  height: 35px;
+  display: flex;
+`;
