@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import { StyledButton } from "./styles";
+import { StyledButton, StyledNormalButtonContainerVisible } from "./styles";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import MenuIcon from "@material-ui/icons/Menu";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
@@ -11,11 +11,13 @@ import { StyledPaper } from "./styles";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
+import { useSelector } from "react-redux";
 
 const options = ["Login", "Register"];
 
 export default function SplitButton() {
   let history = useHistory();
+  const isAllowedSelector = useSelector((state) => state.isAllowed);
 
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
@@ -52,6 +54,21 @@ export default function SplitButton() {
 
     setOpen(false);
   };
+
+  if (isAllowedSelector) {
+    return (
+      <StyledNormalButtonContainerVisible>
+        <StyledButton
+          component={Link}
+          to="/dashboard"
+          variant="contained"
+          color="primary"
+        >
+          Dashboard
+        </StyledButton>
+      </StyledNormalButtonContainerVisible>
+    );
+  }
 
   return (
     <Grid container direction="column" alignItems="center">
