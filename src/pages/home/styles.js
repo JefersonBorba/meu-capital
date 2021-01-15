@@ -27,6 +27,14 @@ export const StyledDiv = styled.div`
 
     @media (min-width: 1360px) {
       justify-content: center;
+      width: 1360px;
+      margin: 0 auto;
     }
   }
+`;
+
+export const StyledHr = styled.hr`
+  margin: 50px auto;
+  background-color: #1d1d42;
+  border-color: #1d1d42;
 `;
