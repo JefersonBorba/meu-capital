@@ -2,12 +2,12 @@ import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import { StyledButton } from "./styles";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import MenuIcon from "@material-ui/icons/Menu";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
+import { StyledPaper } from "./styles";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
@@ -64,8 +64,10 @@ export default function SplitButton() {
           aria-label="split button"
           style={{ height: "30px" }}
         >
-          <Button onClick={handleClick}>{options[selectedIndex]}</Button>
-          <Button
+          <StyledButton onClick={handleClick}>
+            {options[selectedIndex]}
+          </StyledButton>
+          <StyledButton
             color="primary"
             size="small"
             aria-controls={open ? "split-button-menu" : undefined}
@@ -76,7 +78,7 @@ export default function SplitButton() {
             style={{ height: "30px" }}
           >
             <MenuIcon />
-          </Button>
+          </StyledButton>
         </ButtonGroup>
         <Popper
           open={open}
@@ -93,7 +95,7 @@ export default function SplitButton() {
                   placement === "bottom" ? "center top" : "center bottom",
               }}
             >
-              <Paper>
+              <StyledPaper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList id="split-button-menu">
                     {options.map((option, index) => (
@@ -108,7 +110,7 @@ export default function SplitButton() {
                     ))}
                   </MenuList>
                 </ClickAwayListener>
-              </Paper>
+              </StyledPaper>
             </Grow>
           )}
         </Popper>

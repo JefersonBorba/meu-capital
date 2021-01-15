@@ -1,13 +1,14 @@
 import HomeHeader from "../../components/home-header";
 import HomeContent from "../../components/home-content";
 import HomeBox from "../../components/home-box";
+import HomeAvatar from "../../components/home-avatar";
 import HomeFooter from "../../components/home-footer";
 import login from "../../assets/img/login.svg";
 import landing from "../../assets/img/landing.svg";
 import target from "../../assets/img/target.svg";
 import chart from "../../assets/img/chart.svg";
 import card from "../../assets/img/card.svg";
-import { StyledH1, StyledDiv } from "./styles";
+import { StyledH1, StyledDiv, StyledHr } from "./styles";
 
 const Home = () => (
   <StyledDiv>
@@ -21,6 +22,7 @@ const Home = () => (
       }
       variant
     />
+    <StyledHr style={{ width: "40%" }} />
     <HomeContent
       img={landing}
       alt={"homem fazendo sinal de paz e amor"}
@@ -29,7 +31,7 @@ const Home = () => (
         "O sistema foi desenhado para ser intuitivo e tornar sua experiência cada vez mais natural. Com poucos cliques você consegue fazer um controle incrível do seu dinheiro!"
       }
     />
-    <hr />
+    <StyledHr style={{ width: "70%" }} />
     <StyledH1>Principais Recursos</StyledH1>
     <div className="boxContainer">
       <HomeBox
@@ -57,6 +59,8 @@ const Home = () => (
         }
       />
     </div>
+    <StyledHr style={{ width: "30%" }} />
+    <HomeAvatar />
     <HomeFooter />
   </StyledDiv>
 );

@@ -1,10 +1,10 @@
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import {
   StyledDiv,
   StyledLogoContainer,
   StyledSplitButtonContainer,
   StyledNormalButtonContainer,
+  StyledButton,
 } from "./styles";
 
 import logo from "../../assets/img/logo.svg";
@@ -22,26 +22,23 @@ const HomeHeader = () => {
         <SplitButton />
       </StyledSplitButtonContainer>
       <StyledNormalButtonContainer>
-        <Button
+        <StyledButton
           component={Link}
           to="/login"
-          size="small"
           variant="contained"
           color="primary"
-          style={{ height: "30px" }}
         >
           Login
-        </Button>
-        <Button
+        </StyledButton>
+        <StyledButton
           component={Link}
           to="/register"
-          size="small"
           variant="contained"
           color="primary"
-          style={{ height: "30px", marginLeft: "5px" }}
+          style={{ marginLeft: "5px" }}
         >
           Register
-        </Button>
+        </StyledButton>
       </StyledNormalButtonContainer>
     </StyledDiv>
   );
