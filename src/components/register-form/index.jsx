@@ -13,6 +13,7 @@ import { FormContainer, InputContainer, LabelStyled } from "./styles";
 const RegisterForm = () => {
   const history = useHistory();
   const [open, setOpen] = useState(false);
+  const [snackbarError, setSnackbarError] = useState(false);
 
   const schema = yup.object().shape({
     name: yup
@@ -43,9 +44,12 @@ const RegisterForm = () => {
         setOpen(true);
         setTimeout(() => {
           history.push("/login");
-        }, 3000);
+        }, 2500);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        setSnackbarError(true);
+        console.error(err);
+      });
   };
 
   const handleClose = (event, reason) => {
@@ -115,11 +119,23 @@ const RegisterForm = () => {
           </div>
         </form>
       </FormContainer>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success">
-          Usuário criado com sucesso!
-        </Alert>
-      </Snackbar>
+      {snackbarError ? (
+        <Snackbar
+          open={snackbarError}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert onClose={handleClose} severity="error">
+            Erro ao cadastrar!
+          </Alert>
+        </Snackbar>
+      ) : (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success">
+            Usuário criado com sucesso!
+          </Alert>
+        </Snackbar>
+      )}
     </>
   );
 };
