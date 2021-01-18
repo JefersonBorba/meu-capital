@@ -1,4 +1,5 @@
 import { Container, Content, Card } from "./styles";
+import alimentacao from "../../assets/alimentacao.svg";
 
 const ResumeTransaction = () => {
   const exemple = [1, 2, 3, 4, 5, 6];
@@ -8,10 +9,7 @@ const ResumeTransaction = () => {
       <Content>
         {exemple.map((item, index) => (
           <Card key={index}>
-            <img
-              src="http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
-              alt="profile"
-            />
+            <img src={alimentacao} alt="icon" />
             <div>
               <h2>Comida</h2>
               <p>12 de Janeiro</p>
