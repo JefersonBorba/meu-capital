@@ -1,19 +1,17 @@
 import { Container, Content, Card } from "./styles";
-
+import alimentacao from "../../assets/alimentacao.svg";
 const ContentTransaction = () => {
   const exemple = [1, 2, 3, 4, 5, 6];
   return (
     <Container>
       <Content>
+        <h2>Suas transações</h2>
         {exemple.map((item, index) => (
           <Card key={index}>
             <div className="divider">
-              <img
-                src="http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
-                alt="profile"
-              />
+              <img src={alimentacao} alt="icon" />
               <div>
-                <h2>Comida</h2>
+                <h3>Comida</h3>
                 <p>12 de Janeiro</p>
               </div>
             </div>

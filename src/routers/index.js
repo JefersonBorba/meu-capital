@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import Dashboard from "../pages/dashboard";
 import Goals from "../pages/goals";
 import Transaction from "../pages/transaction";
+import Wallet from "../pages/wallet";
 
 const Routers = () => (
   <Switch>
@@ -22,6 +23,9 @@ const Routers = () => (
     </Route>
     <Route path="/transacoes">
       <Transaction />
+    </Route>
+    <Route path="/carteira">
+      <Wallet />
     </Route>
     <Route exact path="/">
       <Home />
