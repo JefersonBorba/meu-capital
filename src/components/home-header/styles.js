@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 export const StyledDiv = styled.div`
   background: #1d1d42;
-  height: 40px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
-  padding: 4px 6px;
+  align-items: center;
+  padding: 0 10px;
 `;
 
 export const StyledLogoContainer = styled.div`
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
 
@@ -23,6 +26,7 @@ export const StyledLogoContainer = styled.div`
     font-family: Ubuntu;
     color: white;
     display: none;
+    font-size: 24px;
   }
 
   @media (min-width: 425px) {
@@ -35,15 +39,44 @@ export const StyledLogoContainer = styled.div`
 export const StyledSplitButtonContainer = styled.div`
   height: 35px;
 
-  @media (min-width: 425px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;
 
 export const StyledNormalButtonContainer = styled.div`
   display: none;
-  @media (min-width: 425px) {
+  @media (min-width: 768px) {
     height: 35px;
     display: flex;
   }
+`;
+
+export const StyledButton = styled(Button)`
+  transition: 0.3s !important;
+  text-transform: capitalize !important;
+  font-family: Ubuntu !important;
+  font-size: 20px !important;
+  background-color: #1d1d42 !important;
+  color: white !important;
+  border: 1px solid white !important;
+
+  :hover {
+    background-color: #6dfa7b !important;
+    color: black !important;
+  }
+`;
+
+export const StyledPaper = styled(Paper)`
+  transition: 0.3s !important;
+  text-transform: capitalize !important;
+  font-family: Ubuntu !important;
+  background-color: #1d1d42 !important;
+  color: white !important;
+  border: 1px solid white !important;
+`;
+
+export const StyledNormalButtonContainerVisible = styled.div`
+  height: 35px;
+  display: flex;
 `;

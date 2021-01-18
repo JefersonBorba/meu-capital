@@ -1,17 +1,20 @@
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import {
   StyledDiv,
   StyledLogoContainer,
   StyledSplitButtonContainer,
   StyledNormalButtonContainer,
+  StyledButton,
 } from "./styles";
+import { useSelector } from "react-redux";
 
 import logo from "../../assets/img/logo.svg";
 
 import SplitButton from "./split-button";
 
 const HomeHeader = () => {
+  const isAllowedSelector = useSelector((state) => state.isAllowed);
+
   return (
     <StyledDiv>
       <StyledLogoContainer>
@@ -21,28 +24,38 @@ const HomeHeader = () => {
       <StyledSplitButtonContainer>
         <SplitButton />
       </StyledSplitButtonContainer>
-      <StyledNormalButtonContainer>
-        <Button
-          component={Link}
-          to="/login"
-          size="small"
-          variant="contained"
-          color="primary"
-          style={{ height: "30px" }}
-        >
-          Login
-        </Button>
-        <Button
-          component={Link}
-          to="/register"
-          size="small"
-          variant="contained"
-          color="primary"
-          style={{ height: "30px", marginLeft: "5px" }}
-        >
-          Register
-        </Button>
-      </StyledNormalButtonContainer>
+      {isAllowedSelector ? (
+        <StyledNormalButtonContainer>
+          <StyledButton
+            component={Link}
+            to="/dashboard"
+            variant="contained"
+            color="primary"
+          >
+            Dashboard
+          </StyledButton>
+        </StyledNormalButtonContainer>
+      ) : (
+        <StyledNormalButtonContainer>
+          <StyledButton
+            component={Link}
+            to="/login"
+            variant="contained"
+            color="primary"
+          >
+            Login
+          </StyledButton>
+          <StyledButton
+            component={Link}
+            to="/register"
+            variant="contained"
+            color="primary"
+            style={{ marginLeft: "5px" }}
+          >
+            Register
+          </StyledButton>
+        </StyledNormalButtonContainer>
+      )}
     </StyledDiv>
   );
 };

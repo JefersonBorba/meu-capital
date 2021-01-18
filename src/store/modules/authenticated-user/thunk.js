@@ -11,15 +11,14 @@ export const authenticatedUserThunk = (data, history) => (
     .then((res) => {
       let token = res.data.accessToken;
       window.localStorage.setItem("accessToken", token);
-      dispatch(userAllowed(true));
       let decoded = jwt_decode(token);
       axios
         .get(`https://meucapital.herokuapp.com/users/${decoded.sub}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
+          dispatch(userAllowed(true));
           dispatch(authenticatedUser(response.data));
-          console.log(response.data);
           history.push("/dashboard");
         })
         .catch((err) => {
