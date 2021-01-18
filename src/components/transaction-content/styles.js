@@ -25,6 +25,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 80%;
+  color: white;
+  h2 {
+    margin: 20px 0;
+  }
 `;
 
 export const Card = styled.div`
