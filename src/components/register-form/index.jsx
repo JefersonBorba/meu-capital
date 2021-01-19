@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-
+import jwt_decode from "jwt-decode";
 import Snackbar from "@material-ui/core/Snackbar";
 import { Alert } from "@material-ui/lab";
 
@@ -36,15 +36,48 @@ const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
 
+  // const promiseWallet = axios.post(
+  //   "https://meucapital.herokuapp.com/wallet",
+  //   {
+  //     balance: 0,
+  //     spent: 0,
+  //     userId: `${decoded.sub}`,
+  //   },
+  //   {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   }
+  // );
+
   const handleForm = (data) => {
     axios
       .post("https://meucapital.herokuapp.com/register", data)
       .then((res) => {
-        console.log(res);
-        setOpen(true);
-        setTimeout(() => {
-          history.push("/login");
-        }, 2500);
+        console.log(res.data);
+        let token = res.data.accessToken;
+        let decoded = jwt_decode(token);
+        axios
+          .post(
+            "https://meucapital.herokuapp.com/wallet",
+            {
+              balance: 0,
+              spent: 0,
+              userId: `${decoded.sub}`,
+            },
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
+          .then((res) => {
+            console.log(res);
+            setOpen(true);
+            setTimeout(() => {
+              history.push("/login");
+            }, 2500);
+          })
+          .catch((err) => {
+            setSnackbarError(true);
+            console.error(err);
+          });
       })
       .catch((err) => {
         setSnackbarError(true);
