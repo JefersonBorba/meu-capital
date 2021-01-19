@@ -36,18 +36,6 @@ const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
 
-  // const promiseWallet = axios.post(
-  //   "https://meucapital.herokuapp.com/wallet",
-  //   {
-  //     balance: 0,
-  //     spent: 0,
-  //     userId: `${decoded.sub}`,
-  //   },
-  //   {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   }
-  // );
-
   const handleForm = (data) => {
     axios
       .post("https://meucapital.herokuapp.com/register", data)
@@ -55,20 +43,47 @@ const RegisterForm = () => {
         console.log(res.data);
         let token = res.data.accessToken;
         let decoded = jwt_decode(token);
+
+        const urlWallet = "https://meucapital.herokuapp.com/wallet";
+        const urlGoals = "https://meucapital.herokuapp.com/wallet";
+
+        const header = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+
+        const requestWallet = {
+          balance: 0,
+          spent: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals1 = {
+          name: "educação",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals2 = {
+          name: "saúde",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals3 = {
+          name: "transporte",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
         axios
-          .post(
-            "https://meucapital.herokuapp.com/wallet",
-            {
-              balance: 0,
-              spent: 0,
-              userId: `${decoded.sub}`,
-            },
-            {
-              headers: { Authorization: `Bearer ${token}` },
-            }
-          )
-          .then((res) => {
-            console.log(res);
+          .all([
+            axios.post(urlWallet, requestWallet, header),
+            axios.post(urlGoals, requestGoals1, header),
+            axios.post(urlGoals, requestGoals2, header),
+            axios.post(urlGoals, requestGoals3, header),
+          ])
+          .then((responseArr) => {
+            responseArr.forEach((res) => console.log(res));
             setOpen(true);
             setTimeout(() => {
               history.push("/login");

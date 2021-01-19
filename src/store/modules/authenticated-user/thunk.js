@@ -12,6 +12,10 @@ export const authenticatedUserThunk = (data, history) => (
       let token = res.data.accessToken;
       window.localStorage.setItem("accessToken", token);
       let decoded = jwt_decode(token);
+
+      const urlWallet = "https://meucapital.herokuapp.com/wallet";
+      const urlGoals = "https://meucapital.herokuapp.com/goals";
+
       axios
         .get(`https://meucapital.herokuapp.com/users/${decoded.sub}`, {
           headers: { Authorization: `Bearer ${token}` },
