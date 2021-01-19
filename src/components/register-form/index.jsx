@@ -44,8 +44,10 @@ const RegisterForm = () => {
         let token = res.data.accessToken;
         let decoded = jwt_decode(token);
 
+        const urlSpentByCategory =
+          "https://meucapital.herokuapp.com/spentByCategory";
         const urlWallet = "https://meucapital.herokuapp.com/wallet";
-        const urlGoals = "https://meucapital.herokuapp.com/wallet";
+        const urlGoals = "https://meucapital.herokuapp.com/goals";
 
         const header = {
           headers: { Authorization: `Bearer ${token}` },
@@ -54,6 +56,13 @@ const RegisterForm = () => {
         const requestWallet = {
           balance: 0,
           spent: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestSpentByCategory = {
+          date: "01/01",
+          amount: 1,
+          name: "lazer",
           userId: `${decoded.sub}`,
         };
 
@@ -78,6 +87,7 @@ const RegisterForm = () => {
         axios
           .all([
             axios.post(urlWallet, requestWallet, header),
+            axios.post(urlSpentByCategory, requestSpentByCategory, header),
             axios.post(urlGoals, requestGoals1, header),
             axios.post(urlGoals, requestGoals2, header),
             axios.post(urlGoals, requestGoals3, header),
