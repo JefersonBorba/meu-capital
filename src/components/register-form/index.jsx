@@ -60,27 +60,31 @@ const RegisterForm = () => {
         };
 
         const requestSpentByCategory = {
-          date: "01/01",
-          amount: 1,
-          name: "lazer",
+          name: "01/01",
+          comida: 0,
+          transporte: 0,
+          outros: 0,
           userId: `${decoded.sub}`,
         };
 
         const requestGoals1 = {
           name: "educação",
-          goal: 0,
+          available: 100,
+          spent: 0,
           userId: `${decoded.sub}`,
         };
 
         const requestGoals2 = {
           name: "saúde",
-          goal: 0,
+          available: 100,
+          spent: 0,
           userId: `${decoded.sub}`,
         };
 
         const requestGoals3 = {
           name: "transporte",
-          goal: 0,
+          available: 100,
+          spent: 0,
           userId: `${decoded.sub}`,
         };
 
