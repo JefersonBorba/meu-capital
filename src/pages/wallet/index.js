@@ -11,26 +11,35 @@ import {
   Content,
   Balance,
 } from "./styles";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Wallet = () => {
+  const isAllowedSelector = useSelector((state) => state.isAllowed);
+  const history = useHistory();
   return (
     <>
-      <Header title="Carteira" />
-      <Container>
-        <SideMenu />
-        <Breakable>
-          <Content>
-            <h1>Seu saldo</h1>
-            <Balance></Balance>
-            <DashboardLineChart />
-          </Content>
-          <RightContainer>
-            <ResumeBalance />
-            <PizzaChart />
-          </RightContainer>
-        </Breakable>
-      </Container>
-      '
+      {isAllowedSelector ? (
+        <>
+          <Header title="Carteira" />
+          <Container>
+            <SideMenu />
+            <Breakable>
+              <Content>
+                <h1>Seu saldo</h1>
+                <Balance></Balance>
+                <DashboardLineChart />
+              </Content>
+              <RightContainer>
+                <ResumeBalance />
+                <PizzaChart />
+              </RightContainer>
+            </Breakable>
+          </Container>
+        </>
+      ) : (
+        history.push("/")
+      )}
     </>
   );
 };
