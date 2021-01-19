@@ -10,6 +10,7 @@ import {
   Breakable,
   Content,
   Balance,
+  BalanceContent,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -26,8 +27,12 @@ const Wallet = () => {
             <SideMenu />
             <Breakable>
               <Content>
-                <h1>Seu saldo</h1>
-                <Balance></Balance>
+                <Balance>
+                  <BalanceContent>
+                    <h1>R$ 1000,00 </h1>
+                    <h2>Total</h2>
+                  </BalanceContent>
+                </Balance>
                 <DashboardLineChart />
               </Content>
               <RightContainer>
