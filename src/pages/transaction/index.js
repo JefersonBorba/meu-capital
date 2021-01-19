@@ -10,21 +10,23 @@ import PizzaChart from "../../components/pizzachart";
 
 import { Container, RightContainer, Breakable } from "./styles";
 
-const Transaction = () => (
-  <div>
-    <Header title="Transações" />
-    <Container>
-      <SideMenu />
-      <Breakable>
-        <ContentTransaction />
-        <RightContainer>
-          <ResumeGoal />
-          <ResumeBalance />
-          <PizzaChart />
-        </RightContainer>
-      </Breakable>
-    </Container>
-  </div>
-);
+const Transaction = () => {
+  return (
+    <div>
+      <Header title="Transações" />
+      <Container>
+        <SideMenu />
+        <Breakable>
+          <ContentTransaction />
+          <RightContainer>
+            <ResumeGoal />
+            <ResumeBalance />
+            <PizzaChart />
+          </RightContainer>
+        </Breakable>
+      </Container>
+    </div>
+  );
+};
 
 export default Transaction;

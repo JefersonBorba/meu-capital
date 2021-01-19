@@ -20,6 +20,14 @@ export const Container = styled.div`
   }
   @media only screen and (max-width: 500px) {
     width: 60vw;
+
+    h3 {
+      font-size: 13px;
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -32,13 +40,12 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
-  padding: 10px;
   color: white;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border-radius: 10px;
   transition: background-color 0.5s;
 
@@ -55,6 +62,13 @@ export const Card = styled.div`
     height: 30px;
     border-radius: 100%;
     margin-right: 20%;
+  }
+
+  @media only screen and (max-width: 500px) {
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   h2 {
