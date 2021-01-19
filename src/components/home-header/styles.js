@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
 
 export const StyledDiv = styled.div`
   background: #1d1d42;
@@ -65,18 +64,4 @@ export const StyledButton = styled(Button)`
     background-color: #6dfa7b !important;
     color: black !important;
   }
-`;
-
-export const StyledPaper = styled(Paper)`
-  transition: 0.3s !important;
-  text-transform: capitalize !important;
-  font-family: Ubuntu !important;
-  background-color: #1d1d42 !important;
-  color: white !important;
-  border: 1px solid white !important;
-`;
-
-export const StyledNormalButtonContainerVisible = styled.div`
-  height: 35px;
-  display: flex;
 `;

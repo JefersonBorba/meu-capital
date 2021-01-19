@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-
+import jwt_decode from "jwt-decode";
 import Snackbar from "@material-ui/core/Snackbar";
 import { Alert } from "@material-ui/lab";
 
@@ -40,11 +40,69 @@ const RegisterForm = () => {
     axios
       .post("https://meucapital.herokuapp.com/register", data)
       .then((res) => {
-        console.log(res);
-        setOpen(true);
-        setTimeout(() => {
-          history.push("/login");
-        }, 2500);
+        console.log(res.data);
+        let token = res.data.accessToken;
+        let decoded = jwt_decode(token);
+
+        const urlSpentByCategory =
+          "https://meucapital.herokuapp.com/spentByCategory";
+        const urlWallet = "https://meucapital.herokuapp.com/wallet";
+        const urlGoals = "https://meucapital.herokuapp.com/goals";
+
+        const header = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+
+        const requestWallet = {
+          balance: 0,
+          spent: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestSpentByCategory = {
+          date: "01/01",
+          amount: 1,
+          name: "lazer",
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals1 = {
+          name: "educação",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals2 = {
+          name: "saúde",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        const requestGoals3 = {
+          name: "transporte",
+          goal: 0,
+          userId: `${decoded.sub}`,
+        };
+
+        axios
+          .all([
+            axios.post(urlWallet, requestWallet, header),
+            axios.post(urlSpentByCategory, requestSpentByCategory, header),
+            axios.post(urlGoals, requestGoals1, header),
+            axios.post(urlGoals, requestGoals2, header),
+            axios.post(urlGoals, requestGoals3, header),
+          ])
+          .then((responseArr) => {
+            responseArr.forEach((res) => console.log(res));
+            setOpen(true);
+            setTimeout(() => {
+              history.push("/login");
+            }, 2500);
+          })
+          .catch((err) => {
+            setSnackbarError(true);
+            console.error(err);
+          });
       })
       .catch((err) => {
         setSnackbarError(true);

@@ -8,9 +8,9 @@ export const SideFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1D1D42;
+  background-color: #1d1d42;
 
   @media (min-width: 850px) {
-    width:40vw;
+    width: 40vw;
   }
 `;
