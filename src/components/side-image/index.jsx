@@ -1,8 +1,8 @@
 import { ImageContainer } from "./styles";
 import LoginImage from "../../assets/img/login.svg";
-import RegisterImage from "../../assets/img/register.svg"
+import RegisterImage from "../../assets/img/register.svg";
 
-const SideImage = ({type}) => {
+const SideImage = ({ type }) => {
   const TypeDecider = (type) => {
     switch (type) {
       case "login":
@@ -12,14 +12,10 @@ const SideImage = ({type}) => {
         return <img src={RegisterImage} alt="Login" />;
 
       default:
-        return <div>nada</div>;
+        return null;
     }
   };
-  return (
-    <ImageContainer>
-      {TypeDecider(type)}
-    </ImageContainer>
-  );
+  return <ImageContainer>{TypeDecider(type)}</ImageContainer>;
 };
 
 export default SideImage;
