@@ -18,9 +18,8 @@ const RegisterForm = () => {
   const schema = yup.object().shape({
     name: yup
       .string()
-      .matches(/[a-zA-Z]/g, "Somente letras!")
-      .matches()
-      .required("Campo obrigatório!"),
+      .required("Campo obrigatório!")
+      .matches(/[a-zA-Z]/g, "Somente letras!"),
     email: yup
       .string("Formato inválido!")
       .email("E-mail inválido!")
