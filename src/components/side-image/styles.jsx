@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
 
   img {
     width: 50vw;
-    max-width: 600px
+    max-width: 600px;
   }
 
   @media (min-width: 850px) {

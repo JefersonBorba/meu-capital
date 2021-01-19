@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const LogoContainer = styled.figure`
-  margin-bottom: 35px;
-  
+  margin-bottom: 15px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   a {
     display: flex;
     flex-direction: column;
@@ -22,7 +27,5 @@ export const LogoContainer = styled.figure`
       margin-bottom: 5px;
       font-size: 2rem;
     }
-
-
   }
 `;

@@ -8,7 +8,6 @@ const SideFormLogo = () => {
       <Link to="/">
         <img src={logo} alt="logo-meu-capital" />
         <figcaption>Meu Capital</figcaption>
-        <span>Your best slogan</span>
       </Link>
     </LogoContainer>
   );

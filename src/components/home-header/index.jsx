@@ -7,13 +7,23 @@ import {
   StyledButton,
 } from "./styles";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { userAllowed } from "../../store/modules/authenticated-user/actions";
+import { useHistory } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 
 import SplitButton from "./split-button";
 
 const HomeHeader = () => {
   const isAllowedSelector = useSelector((state) => state.isAllowed);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleLogout = () => {
+    history.push("/");
+    window.localStorage.clear();
+    dispatch(userAllowed(false));
+  };
 
   return (
     <StyledDiv>
@@ -33,6 +43,13 @@ const HomeHeader = () => {
             color="primary"
           >
             Dashboard
+          </StyledButton>
+          <StyledButton
+            variant="contained"
+            style={{ marginLeft: "5px" }}
+            onClick={handleLogout}
+          >
+            Logout
           </StyledButton>
         </StyledNormalButtonContainer>
       ) : (
