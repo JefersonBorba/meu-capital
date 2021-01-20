@@ -1,9 +1,13 @@
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
+import {useSelector} from "react-redux"
 const PizzaChart = () => {
+  const selectUser = state => state.user;
+  const userData = useSelector(selectUser);
   const data01 = [
-    { name: "Gastos", value: 400, fill: "#e786d7" },
-    { name: "Ganhos", value: 1100, fill: "#7f7fd5" },
+    { name: "Gastos", value: userData[1].data[0].gastos, fill: "#e786d7" },
+    { name: "Ganhos", value: userData[1].data[0].saldo, fill: "#7f7fd5" },
   ];
+  
   return (
     <PieChart width={200} height={200}>
       <Legend verticalAlign="top" height={36} />
