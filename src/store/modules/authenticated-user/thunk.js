@@ -42,7 +42,7 @@ export const authenticatedUserThunk = (data, history) => (
 
     })
     .catch((err) => {
-      console.error(err);
       dispatch(userLoginFailed(true))
+      console.error(err);
     });
 };
