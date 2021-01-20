@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-left: 50px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #141432;
-  width: 55vw;
-  height: 60vh;
+  width: 98%;
+  height: auto;
   border-radius: 30px;
-  margin: 30px;
+  margin-bottom: 30px;
+
   h3 {
     color: white;
     margin: 15px 0;
     width: 150px;
     text-align: center;
   }
-  @media only screen and (max-width: 900px) {
+
+  @media only screen and (max-width: 1155px) {
     flex-direction: column;
-    width: 80vw;
-    height: 100%;
+    width: 100%;
+    height: auto;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
@@ -31,7 +31,7 @@ export const Container = styled.div`
 `;
 
 export const GraphContainer = styled.div`
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: center;
   @media only screen and (max-width: 900px) {
@@ -43,11 +43,11 @@ export const GraphContainer = styled.div`
 `;
 
 export const ExpensesContainer = styled.div`
-  width: 40%;
-  // height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+
   align-items: center;
   p {
     color: white;
@@ -64,6 +64,8 @@ export const ExpensesContainer = styled.div`
 
   @media only screen and (max-width: 510px) {
     .breakable {
+      width: 100%;
+
       flex-direction: column;
       align-items: center;
     }
@@ -71,36 +73,30 @@ export const ExpensesContainer = styled.div`
 `;
 
 export const Income = styled.div`
-  padding: 1rem;
+  padding: 1rem 0;
 
   margin: 10px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 100%;
   background-color: #1b1a43;
   border-radius: 10px;
-  @media only screen and (max-width: 600px) {
-    width: 50vw;
-  }
 `;
 
 export const Outcome = styled.div`
   margin: 10px;
 
-  padding: 1rem;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 100%;
+
   background-color: #1b1a43;
   border-radius: 10px;
-  @media only screen and (max-width: 600px) {
-    width: 50vw;
-  }
 `;
 export const Value = styled.div`
+  padding: 0.3rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
