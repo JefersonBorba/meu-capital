@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 `;
 export const RightContainer = styled.div`
   display: flex;
@@ -16,22 +16,27 @@ export const RightContainer = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  color: white;
-  h2 {
-    margin: 20px 0;
-  }
-`;
-
 export const Breakable = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2%;
+  align-items: flex-start;
+  margin-right: 2%;
+  margin-top: 30px;
+
   @media only screen and (max-width: 900px) {
     flex-direction: column;
     align-items: center;
+  }
+`;
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  h2 {
+    margin: 20px 0;
   }
 `;
 export const GoalsContainer = styled.div`
@@ -40,11 +45,17 @@ export const GoalsContainer = styled.div`
 `;
 
 export const Balance = styled.div`
-  width: 85%;
-  margin: 30px auto;
+  width: 97%;
+
+  display: flex;
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
   background-color: #141432;
   border-radius: 30px;
-  padding: 30px;
+  @media only screen and (max-width: 500px) {
+    width: 70%;
+  }
 `;
 
 export const BalanceContent = styled.div`

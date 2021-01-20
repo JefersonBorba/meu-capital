@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    h3{
-        color: white;
-        margin: 0 0 3% 3%;
-    }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    color: white;
+    margin: 3% 3%;
+    text-align: left;
+  }
 `;

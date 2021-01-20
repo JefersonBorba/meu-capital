@@ -28,30 +28,32 @@ const ResumoGastos = () => {
     <Container>
       <ExpensesContainer>
         <h3>Todos os Gastos</h3>
-        <Income>
-          <p>Ganhos</p>
-          <Value>
-            <div className="up">
-              <AiOutlineArrowUp fill="white" size="30" />
-            </div>
-            <h2>
-              {width > 400 && <span>R$</span>}
-              {userData[1].data[0].saldo},00
-            </h2>
-          </Value>
-        </Income>
-        <Outcome>
-          <p>Gastos</p>
-          <Value>
-            <div className="down">
-              <AiOutlineArrowDown fill="white" size="30" />
-            </div>
-            <h2>
-              {width > 400 && <span>R$</span>}
-              {userData[1].data[0].gastos},00
-            </h2>
-          </Value>
-        </Outcome>
+        <div className="breakable">
+          <Income>
+            <p>Ganhos</p>
+            <Value>
+              <div className="up">
+                <AiOutlineArrowUp fill="white" size="30" />
+              </div>
+              <h2>
+                {width > 400 && <span>R$</span>}
+                {userData[1].data[0].saldo},00
+              </h2>
+            </Value>
+          </Income>
+          <Outcome>
+            <p>Gastos</p>
+            <Value>
+              <div className="down">
+                <AiOutlineArrowDown fill="white" size="30" />
+              </div>
+              <h2>
+                {width > 400 && <span>R$</span>}
+                {userData[1].data[0].gastos},00
+              </h2>
+            </Value>
+          </Outcome>
+        </div>
       </ExpensesContainer>
       <GraphContainer>
         <BarChart
