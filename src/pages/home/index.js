@@ -60,6 +60,7 @@ const Home = () => (
       />
     </div>
     <StyledHr style={{ width: "30%" }} />
+    <StyledH1>Nosso Time</StyledH1>
     <HomeAvatar />
     <HomeFooter />
   </StyledDiv>
