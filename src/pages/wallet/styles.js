@@ -46,11 +46,11 @@ export const GoalsContainer = styled.div`
 
 export const Balance = styled.div`
   width: 97%;
-
   display: flex;
+  flex-direction: column;
   padding: 2rem 0;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   background-color: #141432;
   border-radius: 30px;
   @media only screen and (max-width: 500px) {
@@ -62,6 +62,7 @@ export const BalanceContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   h1 {
     margin-right: 30px;
     font-size: 4rem;
@@ -99,4 +100,18 @@ export const BalanceContent = styled.div`
       font-size: 0.5rem;
     }
   }
+`;
+export const AddValue = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #5cc567;
+    border-radius: 50%;
+    margin-right: 24%;
+    @media only screen and (max-width: 500px) {
+      width: 20px;
+      height: 20px;
+    }
 `;
