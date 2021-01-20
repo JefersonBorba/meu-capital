@@ -19,9 +19,13 @@ import Typography from "@material-ui/core/Typography";
 import SelectCategory from "../modal-select-category"
 import SetValue from "../modal-set-value";
 import RemoveConfimation from "../modal-remove-confirmation"
+import EditGoalCategory from "../modal-edit-goal-category"
+import EditValue from "../modal-edit-goal-value"
 const GoalsList = () => {
   const [modalAddCategory, setModalAddCategory] = useState(false);
+  const [modalEditCategory, setModalEditCategory] = useState(false);
   const [modalAddValue, setModalAddValue] = useState(false);
+  const [modalEditValue, setModalEditValue] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -40,6 +44,11 @@ const GoalsList = () => {
   const handleCategorySelected = (name) => {
     setModalAddCategory(false);
     setModalAddValue(true);
+    setCurrentItem({ category: name });
+  };
+  const handleCategoryEdit = (name) => {
+    setModalEditCategory(false);
+    setModalEditValue(true);
     setCurrentItem({ category: name });
   };
   const handleClick = (event) => {
@@ -70,6 +79,18 @@ const GoalsList = () => {
       />}
       {modalAddValue && (
         <SetValue width={width} currentItem={currentItem} setModalAddValue={setModalAddValue} />
+      )}
+      {modalEditCategory && 
+      <EditGoalCategory 
+      currentItem={currentItem}
+      handleCategoryEdit={handleCategoryEdit} 
+      width={width}
+      showCategories={showCategories}
+      setShowCategories={setShowCategories}
+      setModalEditCategory={setModalEditCategory}
+      />}
+      {modalEditValue && (
+        <EditValue width={width} currentItem={currentItem} setModalEditValue={setModalEditValue} />
       )}
       {modalRemove && (
         <RemoveConfimation width={width} setModalRemove={setModalRemove} />
@@ -106,7 +127,9 @@ const GoalsList = () => {
               }}
             >
               <Typography>
-                <PopoverItem>Editar</PopoverItem>
+                <PopoverItem onClick={() => {
+                  setModalEditCategory(true)
+                  handleClose()}}>Editar</PopoverItem>
                 <PopoverItem onClick={() => {
                   setModalRemove(true)
                   handleClose()}}>Remover</PopoverItem>
