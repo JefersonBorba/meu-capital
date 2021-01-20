@@ -18,6 +18,8 @@ import { useSelector } from "react-redux";
 const Wallet = () => {
   const isAllowedSelector = useSelector((state) => state.isAllowed);
   const history = useHistory();
+  const selectUser = state => state.user;
+  const userData = useSelector(selectUser);
   return (
     <>
       {isAllowedSelector ? (
@@ -29,7 +31,9 @@ const Wallet = () => {
               <Content>
                 <Balance>
                   <BalanceContent>
-                    <h1>R$ 1000,00 </h1>
+                    <h1 style={{color: `${userData[1].data[0].saldo - userData[1].data[0].gastos < 0 && "#E9666D"}`}}>
+                      R$ {userData[1].data[0].saldo - userData[1].data[0].gastos},00
+                      </h1>
                     <h2>Total</h2>
                   </BalanceContent>
                 </Balance>
