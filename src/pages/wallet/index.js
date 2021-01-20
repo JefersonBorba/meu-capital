@@ -51,7 +51,7 @@ const Wallet = () => {
                   )}
                   <BalanceContent>
                     <h1 style={{color: `${userData[1].data[0].saldo - userData[1].data[0].gastos < 0 && "#E9666D"}`}}>
-                      R$ {userData[1].data[0].saldo - userData[1].data[0].gastos},00
+                      R$ {userData[1].data[0].saldo ? userData[1].data[0].saldo - userData[1].data[0].gastos : "00"},00
                       </h1>
                     <h2>Total</h2>
                   </BalanceContent>
