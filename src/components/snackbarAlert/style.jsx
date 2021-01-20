@@ -6,6 +6,7 @@ export const SnackbarAlertContainer = styled(Snackbar)`
   .MuiPaper-root{
     width: 50vw;
     max-width:500px;
+    
     display: flex;
     align-items: center;
     justify-content: space-around;
