@@ -9,6 +9,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import { Alert } from "@material-ui/lab";
 
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
+import SnackbarAlert from "../snackbarAlert";
 
 const LoginForm = () => {
   const history = useHistory();
@@ -32,12 +33,6 @@ const LoginForm = () => {
     dispatch(authenticatedUserThunk(data, history));
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-  };
 
   return (
     <FormContainer>
@@ -71,15 +66,11 @@ const LoginForm = () => {
         </div>
       </form>
       {userLoginFailed && 
-        <Snackbar
-          open={userLoginFailed}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          <Alert onClose={handleClose} severity="error">
-            Email ou senha inválidos!
-          </Alert>
-        </Snackbar>
+        <SnackbarAlert
+          openState={userLoginFailed}
+          severity='error'
+          message="Email ou Senha inválidos!"
+        />
       }
     </FormContainer>
   );
