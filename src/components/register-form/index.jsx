@@ -18,9 +18,8 @@ const RegisterForm = () => {
   const schema = yup.object().shape({
     name: yup
       .string()
-      .matches(/[a-zA-Z]/g, "Somente letras!")
-      .matches()
-      .required("Campo obrigatório!"),
+      .required("Campo obrigatório!")
+      .matches(/[a-zA-Z]/g, "Somente letras!"),
     email: yup
       .string("Formato inválido!")
       .email("E-mail inválido!")
@@ -154,7 +153,7 @@ const RegisterForm = () => {
               ref={register}
               name="password"
               id="password"
-              type="text"
+              type="password"
               placeholder="Digite sua senha"
             />
             {errors.password && (
@@ -169,7 +168,7 @@ const RegisterForm = () => {
               ref={register}
               name="passwordConfirm"
               id="passwordConfirm"
-              type="text"
+              type="password"
               placeholder="Confirme sua senha"
             />
             {errors.passwordConfirm && (
