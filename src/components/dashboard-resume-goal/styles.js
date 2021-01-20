@@ -19,3 +19,13 @@ export const Content = styled.div`
     align-items: center;
   }
 `;
+export const LinearProgress = styled.div`
+  background-color: white;
+  height: 5px;
+  width: 100%;
+  margin-top: 5px;
+`;
+export const Bar = styled.div`
+  background-color: #494984;
+  height: 100%;
+`;
