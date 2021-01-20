@@ -5,13 +5,11 @@ import {
   Container,
   GoalItem,
   RightContainer,
-  Button,
   CashAvailable,
   CategoryName,
   Header,
   AddGoal,
   PopoverItem,
-  Modal,
 } from "./style";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -20,9 +18,11 @@ import Typography from "@material-ui/core/Typography";
 
 import SelectCategory from "../modal-select-category"
 import SetValue from "../modal-set-value";
+import RemoveConfimation from "../modal-remove-confirmation"
 const GoalsList = () => {
   const [modalAddCategory, setModalAddCategory] = useState(false);
   const [modalAddValue, setModalAddValue] = useState(false);
+  const [modalRemove, setModalRemove] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentItem, setCurrentItem] = useState([]);
@@ -71,6 +71,9 @@ const GoalsList = () => {
       {modalAddValue && (
         <SetValue width={width} currentItem={currentItem} setModalAddValue={setModalAddValue} />
       )}
+      {modalRemove && (
+        <RemoveConfimation width={width} setModalRemove={setModalRemove} />
+      )} 
       {userData[2].data.map((data) => (
         <GoalItem>
           <CategoryName style={{ flexDirection: width < 400 && "column" }}>
@@ -104,7 +107,9 @@ const GoalsList = () => {
             >
               <Typography>
                 <PopoverItem>Editar</PopoverItem>
-                <PopoverItem>Remover</PopoverItem>
+                <PopoverItem onClick={() => {
+                  setModalRemove(true)
+                  handleClose()}}>Remover</PopoverItem>
               </Typography>
             </Popover>
           </RightContainer>
