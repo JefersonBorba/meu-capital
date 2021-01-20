@@ -3,13 +3,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { authenticatedUserThunk } from "../../store/modules/authenticated-user/thunk";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import Snackbar from "@material-ui/core/Snackbar";
+import { Alert } from "@material-ui/lab";
 
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 
 const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const userLoginFailed = useSelector(state => state.userLoginFailed)
+
 
   const schema = yup.object().shape({
     email: yup
@@ -25,6 +30,13 @@ const LoginForm = () => {
 
   const handleForm = (data) => {
     dispatch(authenticatedUserThunk(data, history));
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
   };
 
   return (
@@ -47,7 +59,7 @@ const LoginForm = () => {
             ref={register}
             name="password"
             id="password"
-            type="text"
+            type="password"
             placeholder="Digite sua Senha"
           />
           {errors.password && (
@@ -58,6 +70,17 @@ const LoginForm = () => {
           <button>Entrar</button>
         </div>
       </form>
+      {userLoginFailed && 
+        <Snackbar
+          open={userLoginFailed}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert onClose={handleClose} severity="error">
+            Email ou senha inválidos!
+          </Alert>
+        </Snackbar>
+      }
     </FormContainer>
   );
 };

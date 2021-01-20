@@ -1,5 +1,5 @@
 import axios from "axios";
-import { authenticatedUser, userAllowed } from "./actions";
+import { authenticatedUser, userAllowed, userLoginFailed } from "./actions";
 import jwt_decode from "jwt-decode";
 
 export const authenticatedUserThunk = (data, history) => (
@@ -10,7 +10,8 @@ export const authenticatedUserThunk = (data, history) => (
     .post(`https://meucapital.herokuapp.com/login`, data)
     .then((res) => {
       let token = res.data.accessToken;
-      window.localStorage.setItem("accessToken", token);
+      window.localStorage.setItem("accessToken", token)
+      ;
       let decoded = jwt_decode(token);
 
       const header = {
@@ -37,6 +38,11 @@ export const authenticatedUserThunk = (data, history) => (
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
+
+    })
+    .catch((err) => {
+      console.error(err);
+      dispatch(userLoginFailed(true))
     });
 };

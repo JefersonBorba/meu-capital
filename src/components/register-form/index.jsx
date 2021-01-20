@@ -153,7 +153,7 @@ const RegisterForm = () => {
               ref={register}
               name="password"
               id="password"
-              type="text"
+              type="password"
               placeholder="Digite sua senha"
             />
             {errors.password && (
@@ -168,7 +168,7 @@ const RegisterForm = () => {
               ref={register}
               name="passwordConfirm"
               id="passwordConfirm"
-              type="text"
+              type="password"
               placeholder="Confirme sua senha"
             />
             {errors.passwordConfirm && (
