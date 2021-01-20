@@ -1,4 +1,9 @@
 import { StyledDiv } from "./styles";
+import abdiel from "../../assets/img/abdiel.jpeg";
+import eduardo from "../../assets/img/eduardo.jpeg";
+import felipe from "../../assets/img/felipe.jpeg";
+import jeferson from "../../assets/img/jeferson.jpeg";
+import rafael from "../../assets/img/rafael.jpeg";
 
 const HomeAvatar = () => {
   return (
@@ -11,11 +16,50 @@ const HomeAvatar = () => {
         <a href="#slide-5">5</a>
 
         <div class="slides">
-          <div id="slide-1">1</div>
-          <div id="slide-2">2</div>
-          <div id="slide-3">3</div>
-          <div id="slide-4">4</div>
-          <div id="slide-5">5</div>
+          <div id="slide-1">
+            <img src={abdiel} alt="abdiel" />
+            <span>Abdiel</span>
+          </div>
+          <div id="slide-2">
+            <img src={eduardo} alt="eduardo" />
+            <span>Eduardo</span>
+          </div>
+          <div id="slide-3">
+            <img src={felipe} alt="felipe" />
+            <span>Felipe</span>
+          </div>
+          <div id="slide-4">
+            <img src={jeferson} alt="jeferson" />
+            <span>Jeferson</span>
+          </div>
+          <div id="slide-5">
+            <img src={rafael} alt="rafael" />
+            <span>Rafael</span>
+          </div>
+        </div>
+      </div>
+      <div class="sliderBig">
+        <div class="slides">
+          <div id="slide-1">
+            <img src={abdiel} alt="abdiel" />
+            <span>Abdiel</span>
+          </div>
+          <div id="slide-2">
+            <img src={eduardo} alt="eduardo" />
+            <span>Eduardo</span>
+          </div>
+          <div id="slide-3">
+            <img src={felipe} alt="felipe" />
+            <span>Felipe</span>
+          </div>
+          <div id="slide-4">
+            <img src={jeferson} alt="jeferson" />
+            <span>Jeferson</span>
+          </div>
+          <div id="slide-5">
+            <img src={rafael} alt="rafael" />
+            <span>Rafael</span>
+          </div>
         </div>
       </div>
     </StyledDiv>

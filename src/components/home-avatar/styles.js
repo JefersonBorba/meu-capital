@@ -14,6 +14,10 @@ export const StyledDiv = styled.div`
     overflow: hidden;
   }
 
+  .sliderBig {
+    display: none;
+  }
+
   .slides {
     display: flex;
     overflow-x: auto;
@@ -42,8 +46,6 @@ export const StyledDiv = styled.div`
     width: 260px;
     height: 260px;
     margin-right: 50px;
-    border-radius: 10px;
-    background: lightgrey;
     transform-origin: center center;
     transform: scale(1);
     transition: transform 0.5s;
@@ -51,8 +53,25 @@ export const StyledDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
     color: #183161;
+
+    img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    span {
+      font-size: 24px;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translate(-50%);
+      font-family: "Ubuntu", sans-serif;
+      font-weight: bold;
+    }
   }
 
   img {
@@ -84,45 +103,51 @@ export const StyledDiv = styled.div`
 
   @media (min-width: 425px) {
     .slider {
-      width: 360px;
+      width: 330px;
     }
 
     .slides > div {
-      width: 360px;
-      height: 360px;
-    }
-  }
+      width: 330px;
+      height: 330px;
 
-  @media (min-width: 768px) {
-    .slider {
-      width: 460px;
-    }
-
-    .slides > div {
-      width: 460px;
-      height: 460px;
+      img {
+        width: 290px;
+        height: 290px;
+      }
     }
   }
 
   @media (min-width: 1024px) {
     .slider {
-      width: 530px;
+      display: none;
+    }
+
+    .sliderBig {
+      display: flex;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      align-items: space-around;
     }
 
     .slides > div {
-      width: 530px;
-      height: 530px;
-    }
-  }
+      width: 18vw;
+      height: 18vw;
+      margin: 0 10px;
+      position: relative;
+      border-radius: 0;
+      background: none;
 
-  @media (min-width: 1360px) {
-    .slider {
-      width: 660px;
-    }
+      img {
+        width: 15vw;
+        height: 15vw;
+      }
 
-    .slides > div {
-      width: 660px;
-      height: 660px;
+      span {
+        bottom: 0;
+      }
     }
   }
 `;
