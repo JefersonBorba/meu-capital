@@ -21,7 +21,7 @@ const SnackbarAlert = ({severity, message, openState}) => {
   };
 
   return (
-    <SnackbarAlertContainer open={userLoginFailedState} autoHideDuration={3000} onClose={handleClose}>
+    <SnackbarAlertContainer open={userLoginFailedState} autoHideDuration={300000} onClose={handleClose}>
 
         <Alert onClose={handleClose} severity={severity}>
           {message}
