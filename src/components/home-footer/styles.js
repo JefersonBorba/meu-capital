@@ -26,4 +26,42 @@ export const StyledSocialDiv = styled.div`
   @media (min-width: 425px) {
     width: 340px;
   }
+
+  @media (min-width: 768px) {
+    width: 640px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 740px;
+  }
+`;
+
+export const LinkedInDiv = styled.div`
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  p {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      display: block;
+    }
+  }
 `;
