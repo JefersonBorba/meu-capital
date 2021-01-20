@@ -5,16 +5,12 @@ import { useHistory } from "react-router-dom";
 import { authenticatedUserThunk } from "../../store/modules/authenticated-user/thunk";
 import { useDispatch, useSelector } from "react-redux";
 
-import Snackbar from "@material-ui/core/Snackbar";
-import { Alert } from "@material-ui/lab";
-
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 import SnackbarAlert from "../snackbarAlert";
 
 const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const userLoginFailed = useSelector(state => state.userLoginFailed)
 
 
   const schema = yup.object().shape({
@@ -65,13 +61,10 @@ const LoginForm = () => {
           <button>Entrar</button>
         </div>
       </form>
-      {userLoginFailed && 
-        <SnackbarAlert
-          openState={userLoginFailed}
+      <SnackbarAlert
           severity='error'
           message="Email ou Senha inválidos!"
         />
-      }
     </FormContainer>
   );
 };
