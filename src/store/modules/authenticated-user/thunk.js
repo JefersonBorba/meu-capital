@@ -46,3 +46,34 @@ export const authenticatedUserThunk = (data, history) => (
       console.error(err);
     });
 };
+
+export const refreshUserThunk = () => (
+  dispatch,
+  _getState
+) => {
+  if(window.localStorage.accessToken){
+    let decoded = jwt_decode(window.localStorage.accessToken);
+    const header = {
+      headers: { Authorization: `Bearer ${localStorage.accessToken}` },
+    };
+    const urlUser = `https://meucapital.herokuapp.com/users/${decoded.sub}`;
+    const urlWallet = `https://meucapital.herokuapp.com/wallet?userId=${decoded.sub}`;
+    const urlGoals = `https://meucapital.herokuapp.com/goals?userId=${decoded.sub}`;
+    const urlSpentByCategory = `https://meucapital.herokuapp.com/spentByCategory?userId=${decoded.sub}`;
+    return axios
+        .all([
+          axios.get(urlUser, header),
+          axios.get(urlWallet, header),
+          axios.get(urlGoals, header),
+          axios.get(urlSpentByCategory, header),
+        ])
+        .then((responseArr) => {
+          console.log(responseArr);
+          dispatch(userAllowed(true));
+          dispatch(authenticatedUser(responseArr));
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+    }

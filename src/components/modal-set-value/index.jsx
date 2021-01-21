@@ -6,6 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import {useDispatch} from "react-redux"
+import { refreshUserThunk} from "../../store/modules/authenticated-user/thunk"
 
 const SetValue = ({
   width,
@@ -14,6 +16,7 @@ const SetValue = ({
   wallet = false,
   goals = false,
 }) => {
+  const dispatch = useDispatch();
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
 
@@ -55,6 +58,7 @@ const SetValue = ({
           console.log(res);
           setModalAddValue(false);
         })
+        .then(() => dispatch(refreshUserThunk()))
         .catch((err) => console.log(err));
     }
 
@@ -69,6 +73,7 @@ const SetValue = ({
           console.log(res);
           setModalAddValue(false);
         })
+        .then(() => dispatch(refreshUserThunk()))
         .catch((err) => console.log(err));
     }
   };
