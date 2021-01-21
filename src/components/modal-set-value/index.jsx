@@ -1,4 +1,4 @@
-import { Modal, Button } from "./style";
+import { Modal } from "./style";
 import { IoMdClose } from "react-icons/io";
 import jwt_decode from "jwt-decode";
 import * as yup from "yup";

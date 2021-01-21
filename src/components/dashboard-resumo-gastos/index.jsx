@@ -24,6 +24,16 @@ const ResumoGastos = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   });
 
+  const dataGraph = [
+    {
+      name: "teste",
+      saldo: userData[1].data[0].saldo,
+      gastos: userData[3].data.reduce((acc, curr) => acc + curr.value, 0),
+    },
+  ];
+
+  console.log(userData[1].data);
+
   return (
     <Container>
       <ExpensesContainer>
@@ -37,7 +47,8 @@ const ResumoGastos = () => {
               </div>
               <h2>
                 {width > 400 && <span>R$</span>}
-                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "00"},00
+                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "00"}
+                ,00
               </h2>
             </Value>
           </Income>
@@ -48,8 +59,10 @@ const ResumoGastos = () => {
                 <AiOutlineArrowDown fill="white" size="30" />
               </div>
               <h2>
+                {console.log(userData[3].data)}
                 {width > 400 && <span>R$</span>}
-                {userData[1].data[0].gastos ? userData[1].data[0].gastos : "00"},00
+                {userData[3].data.reduce((acc, curr) => acc + curr.value, 0)}
+                ,00
               </h2>
             </Value>
           </Outcome>
@@ -59,7 +72,7 @@ const ResumoGastos = () => {
         <BarChart
           width={width >= 900 ? width / 3 : width / 2}
           height={300}
-          data={userData[1].data}
+          data={dataGraph}
           margin={{
             top: 5,
             right: 30,
