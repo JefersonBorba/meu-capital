@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 
 export const StyledDiv = styled.div`
   background: #1d1d42;
-  height: 50px;
+  height: 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@ export const StyledLogoContainer = styled.div`
   }
 
   span {
-    margin-left: 5px;
+    margin-left: 15px;
     font-family: Ubuntu;
     color: white;
     display: none;

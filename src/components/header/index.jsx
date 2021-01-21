@@ -6,22 +6,28 @@ import {
   ImageProfile,
   StyledContent,
   StyledLogoutButton,
+  LogoAndTitleContainer,
 } from "./styles";
 
 import logo from "../../assets/img/logo.svg";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { userAllowed } from "../../store/modules/authenticated-user/actions";
+
 const Header = ({ title }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const dataUser = useSelector((state) => state.user);
-  const isAllowedSelector = useSelector((state) => state.isAllowed);
 
   return (
     <Container>
       <Content>
-        <img src={logo} alt="logo" />
-        <h1>{title}</h1>
+        <LogoAndTitleContainer>
+          <img src={logo} alt="logo" />
+          <h1>{title}</h1>
+        </LogoAndTitleContainer>
         <StyledContent>
           <Profile>
             <ImageProfile
@@ -32,8 +38,9 @@ const Header = ({ title }) => {
           </Profile>
           <StyledLogoutButton
             onClick={() => {
+              history.push("/");
               window.localStorage.clear();
-              history.push("/login");
+              dispatch(userAllowed(false));
             }}
           >
             Logout

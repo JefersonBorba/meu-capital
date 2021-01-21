@@ -12,9 +12,7 @@ const SetValue = ({width, currentItem, setModalAddValue}) => {
             cursor="pointer"
           />
           <h3>
-            {currentItem.category
-              ? currentItem.category
-              : "Categoria não selecionada"}
+            {currentItem.category && currentItem.category}
           </h3>
           <h2>Defina um valor</h2>
           <input placeholder="R$ 00,00"></input>
