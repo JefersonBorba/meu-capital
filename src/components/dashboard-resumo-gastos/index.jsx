@@ -37,7 +37,7 @@ const ResumoGastos = () => {
               </div>
               <h2>
                 {width > 400 && <span>R$</span>}
-                {userData[1].data[0].saldo},00
+                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "00"},00
               </h2>
             </Value>
           </Income>
@@ -49,7 +49,7 @@ const ResumoGastos = () => {
               </div>
               <h2>
                 {width > 400 && <span>R$</span>}
-                {userData[1].data[0].gastos},00
+                {userData[1].data[0].gastos ? userData[1].data[0].gastos : "00"},00
               </h2>
             </Value>
           </Outcome>

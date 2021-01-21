@@ -16,7 +16,7 @@ export const RightContainer = styled.div`
 `;
 
 export const Breakable = styled.div`
-  margin-top: 30px;
+  margin-top: 2%;
 
   width: 100%;
   display: flex;

@@ -9,6 +9,8 @@ const HomeFooter = () => {
           <a
             href="https://www.linkedin.com/in/abdiel-martins/"
             alt="Abdiel Martins"
+            target="blank"
+            rel="noopener"
           >
             <LinkedInIcon />
             <p>Abdiel Martins</p>
@@ -18,6 +20,8 @@ const HomeFooter = () => {
           <a
             href="https://www.linkedin.com/in/eduardo-marinho-762b141b0/"
             alt="Eduardo Marinho"
+            target="blank"
+            rel="noopener"
           >
             <LinkedInIcon />
             <p>Eduardo Marinho</p>
@@ -27,6 +31,8 @@ const HomeFooter = () => {
           <a
             href="https://www.linkedin.com/in/felipesouzadsgn/"
             alt="Felipe Souza"
+            target="blank"
+            rel="noopener"
           >
             <LinkedInIcon />
             <p>Felipe Souza</p>
@@ -36,6 +42,8 @@ const HomeFooter = () => {
           <a
             href="https://www.linkedin.com/in/jefersonborbasls/"
             alt="Jeferson Borba"
+            target="blank"
+            rel="noopener"
           >
             <LinkedInIcon />
             <p>Jeferson Borba</p>
@@ -45,6 +53,8 @@ const HomeFooter = () => {
           <a
             href="https://www.linkedin.com/in/rafael-assad/"
             alt="Rafael Assad"
+            target="blank"
+            rel="noopener"
           >
             <LinkedInIcon />
             <p>Rafael Assad</p>

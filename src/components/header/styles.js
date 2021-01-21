@@ -76,3 +76,53 @@ export const StyledLogoutButton = styled.button`
     transition: 0.3s;
   }
 `;
+
+export const LogoAndTitleContainer = styled.div`
+  display: flex;
+
+  h1 {
+    padding-left: 11vw;
+  }
+
+  @media (min-width: 425px) {
+    h1 {
+      padding-left: 11vw;
+    }
+  }
+
+  @media (min-width: 500px) {
+    h1 {
+      padding-left: 6vw;
+    }
+  }
+
+  @media (min-width: 700px) {
+    h1 {
+      padding-left: 4vw;
+    }
+  }
+
+  @media (min-width: 900px) {
+    h1 {
+      padding-left: 12vw;
+    }
+  }
+
+  @media (min-width: 1250px) {
+    h1 {
+      padding-left: 11vw;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    h1 {
+      padding-left: 9vw;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    h1 {
+      padding-left: 7.5vw;
+    }
+  }
+`;

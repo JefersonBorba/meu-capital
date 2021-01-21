@@ -1,60 +1,28 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Container, Content, Card } from "./styles";
 import alimentacao from "../../assets/alimentacao.svg";
-import transporte from "../../assets/transporte.svg";
-import educacao from "../../assets/educacao.svg";
-import lazer from "../../assets/lazer-hobbie.svg";
-import roupas from "../../assets/roupas.svg";
 
 const ContentTransaction = () => {
-  const [data, setData] = useState([
-    {
-      name: "Alimentação",
-      available: 4000,
-      spent: 2400,
-      categoryicon: alimentacao,
-    },
-    {
-      name: "Transporte",
-      available: 4000,
-      spent: 2400,
-      categoryicon: transporte,
-    },
-    {
-      name: "Educação",
-      available: 4000,
-      spent: 2400,
-      categoryicon: educacao,
-    },
-    {
-      name: "Lazer",
-      available: 4000,
-      spent: 2400,
-      categoryicon: lazer,
-    },
-    {
-      name: "Roupas",
-      available: 4000,
-      spent: 2400,
-      categoryicon: roupas,
-    },
-  ]);
-
+  const selectUser = state => state.user;
+  const userData = useSelector(selectUser);
+  for(let i = 0; i < 4; i++){
+    console.log(Object.keys(userData[3].data[1]))
+  }
   return (
     <Container>
       <Content>
         <h2>Suas transações</h2>
-        {data.map((item, index) => (
-          <Card key={index}>
-            <div className="divider">
-              <img src={item.categoryicon} alt="icon" />
-              <div>
-                <h3>{item.name}</h3>
-                <p>12 de Janeiro</p>
+        {userData[3].data.map((data, index) => (
+            <Card key={index}>
+              <div className="divider">
+                <img src={alimentacao} alt="icon" />
+                <div>
+                  <h3>{Object.keys(data)[1]}</h3>
+                  <p>{data.name}</p>
+                </div>
               </div>
-            </div>
-            <span>R$ 12,00</span>
-          </Card>
+              <span>R$ {data.comida},00</span>
+            </Card>
         ))}
       </Content>
     </Container>

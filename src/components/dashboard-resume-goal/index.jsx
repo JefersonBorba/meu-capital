@@ -25,7 +25,7 @@ const ResumeGoal = () => {
         <h3>R${goalReducer},00</h3>
       </div>
       <LinearProgress>
-        <Bar style={{width: (spentReducer / goalReducer) * 100}}/>
+        <Bar style={{width: `${(spentReducer / goalReducer) * 100}%`}}/>
       </LinearProgress>
     </Content>
   </Container>

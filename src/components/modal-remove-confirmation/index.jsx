@@ -1,22 +1,47 @@
-import { Modal, Button } from "./style"
+import { Modal, Button } from "./style";
 import { IoMdClose } from "react-icons/io";
+import axios from "axios";
 
-const RemoveConfirmation = ({width, setModalRemove}) => {
-    return (
-        <Modal style={{ height: "40vh", width: width < 450 && "80vw" }}>
-          <IoMdClose
-            onClick={() => setModalRemove(false)}
-            fill="white"
-            size="20px"
-            style={{ right: "10px", top: "10px", position: "absolute" }}
-            cursor="pointer"
-          />
-          <h2>Tem certeza que deseja remover?</h2>
-          <Button onClick={() => setModalRemove(false)}>
-            <h2>Remover</h2>
-          </Button>
-        </Modal>
-    )
-}
+const RemoveConfirmation = ({ width, setModalRemove, currentItemId }) => {
+  console.log(currentItemId);
+
+  let token = window.localStorage.getItem("accessToken");
+
+  const goalsUrl = `https://meucapital.herokuapp.com/goals/${currentItemId}`;
+
+  const header = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const handleClick = () => {
+    axios
+      .delete(goalsUrl, header)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <Modal style={{ height: "40vh", width: width < 450 && "80vw" }}>
+      <IoMdClose
+        onClick={() => setModalRemove(false)}
+        fill="white"
+        size="20px"
+        style={{ right: "10px", top: "10px", position: "absolute" }}
+        cursor="pointer"
+      />
+      <h2>Tem certeza que deseja remover?</h2>
+      <Button
+        onClick={() => {
+          handleClick();
+          setModalRemove(false);
+        }}
+      >
+        <h2>Remover</h2>
+      </Button>
+    </Modal>
+  );
+};
 
 export default RemoveConfirmation;
