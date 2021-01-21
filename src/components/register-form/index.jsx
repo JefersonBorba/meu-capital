@@ -53,8 +53,7 @@ const RegisterForm = () => {
         };
 
         const requestWallet = {
-          balance: 0,
-          spent: 0,
+          saldo: 0,
           userId: `${decoded.sub}`,
         };
 

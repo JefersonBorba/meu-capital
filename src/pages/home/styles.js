@@ -18,6 +18,7 @@ export const StyledH1 = styled.h1`
 
 export const StyledDiv = styled.div`
   background: aliceblue;
+  overflow-x: hidden;
 
   .boxContainer {
     @media (min-width: 768px) {
