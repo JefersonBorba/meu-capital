@@ -31,11 +31,12 @@ const GoalsList = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentItem, setCurrentItem] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
-  const [currentItemDel, setCurrentItemDel] = useState();
+  const [currentItemId, setCurrentItemId] = useState();
 
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
+
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
 
@@ -62,8 +63,6 @@ const GoalsList = () => {
   };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-
-  console.log(currentItemDel);
 
   return (
     <Container style={{ width: width < 700 && "75vw" }}>
@@ -105,6 +104,7 @@ const GoalsList = () => {
         <EditValue
           width={width}
           currentItem={currentItem}
+          currentItemId={currentItemId}
           setModalEditValue={setModalEditValue}
         />
       )}
@@ -112,7 +112,7 @@ const GoalsList = () => {
         <RemoveConfirmation
           width={width}
           setModalRemove={setModalRemove}
-          currentItemDel={currentItemDel}
+          currentItemId={currentItemId}
         />
       )}
       {userData[2].data.map((data, index) => {
@@ -129,6 +129,22 @@ const GoalsList = () => {
                 <p>Disponível</p>
                 <h3>{data.available},00</h3>
                 <p>{data.spent},00</p>
+                <button
+                  onClick={() => {
+                    setCurrentItemId(data.id);
+                    setModalRemove(true);
+                  }}
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => {
+                    setCurrentItemId(data.id);
+                    setModalEditCategory(true);
+                  }}
+                >
+                  Editar
+                </button>
               </CashAvailable>
               <BsThreeDotsVertical
                 cursor="pointer"
@@ -160,8 +176,7 @@ const GoalsList = () => {
                   </PopoverItem>
                   <PopoverItem
                     onClick={() => {
-                      console.log(index);
-                      setCurrentItemDel(data.id);
+                      // setCurrentItemDel(data.id);
                       setModalRemove(true);
                       handleClose();
                     }}

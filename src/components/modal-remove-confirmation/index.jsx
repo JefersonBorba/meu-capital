@@ -1,8 +1,27 @@
 import { Modal, Button } from "./style";
 import { IoMdClose } from "react-icons/io";
+import axios from "axios";
 
-const RemoveConfirmation = ({ width, setModalRemove, currentItemDel }) => {
-  console.log(currentItemDel);
+const RemoveConfirmation = ({ width, setModalRemove, currentItemId }) => {
+  console.log(currentItemId);
+
+  let token = window.localStorage.getItem("accessToken");
+
+  const goalsUrl = `https://meucapital.herokuapp.com/goals/${currentItemId}`;
+
+  const header = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const handleClick = () => {
+    axios
+      .delete(goalsUrl, header)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <Modal style={{ height: "40vh", width: width < 450 && "80vw" }}>
       <IoMdClose
@@ -13,7 +32,12 @@ const RemoveConfirmation = ({ width, setModalRemove, currentItemDel }) => {
         cursor="pointer"
       />
       <h2>Tem certeza que deseja remover?</h2>
-      <Button onClick={() => setModalRemove(false)}>
+      <Button
+        onClick={() => {
+          handleClick();
+          setModalRemove(false);
+        }}
+      >
         <h2>Remover</h2>
       </Button>
     </Modal>
