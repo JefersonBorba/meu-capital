@@ -9,7 +9,7 @@ import {
   CategoryName,
   Header,
   AddGoal,
-  ButtonContainer
+  ButtonContainer,
 } from "./style";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -113,27 +113,33 @@ const GoalsList = () => {
               <CashAvailable>
                 <p>Disponível</p>
                 <h3>{data.available},00</h3>
-                <p>{data.spent},00</p>
-                
+                <p>
+                  {userData[3].data
+                    .filter((userData) => userData.category === data.name)
+                    .reduce((acc, curr) => acc + curr.value, 0)}
+                  ,00
+                </p>
               </CashAvailable>
-                <ButtonContainer>
-                  <button className="edit"
-                    onClick={() => {
-                      setCurrentItemId(data.id);
-                      setModalEditCategory(true);
-                    }}
-                  >
-                    Editar
-                  </button>
-                  <button className="remove"
-                    onClick={() => {
-                      setCurrentItemId(data.id);
-                      setModalRemove(true);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </ButtonContainer>
+              <ButtonContainer>
+                <button
+                  className="edit"
+                  onClick={() => {
+                    setCurrentItemId(data.id);
+                    setModalEditCategory(true);
+                  }}
+                >
+                  Editar
+                </button>
+                <button
+                  className="remove"
+                  onClick={() => {
+                    setCurrentItemId(data.id);
+                    setModalRemove(true);
+                  }}
+                >
+                  Delete
+                </button>
+              </ButtonContainer>
             </RightContainer>
           </GoalItem>
         );

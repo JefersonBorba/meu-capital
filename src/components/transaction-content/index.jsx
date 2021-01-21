@@ -51,6 +51,7 @@ const ContentTransaction = () => {
     setCurrentItem({ category: name });
   };
 
+  console.log(userData[3].data);
   return (
     <Container style={{ width: width < 700 && "75vw" }}>
       <Header>
@@ -104,42 +105,48 @@ const ContentTransaction = () => {
           transaction
         />
       )}
-      {userData[3].data.map((data, index) => {
-        return (
-          <GoalItem key={index}>
-            <CategoryName style={{ flexDirection: width < 400 && "column" }}>
-              <img src={iconsProvider[1]} alt={data.name} />
-              <h3>{data.category}</h3>
-            </CategoryName>
-            <RightContainer>
-              <CashAvailable>
-                <p>Gasto</p>
-                <h3>{data.value},00</h3>
-              </CashAvailable>
-              <ButtonContainer>
-                <button
-                  className="edit"
-                  onClick={() => {
-                    setCurrentItemId(data.id);
-                    setModalEditCategory(true);
-                  }}
-                >
-                  Editar
-                </button>
-                <button
-                  className="remove"
-                  onClick={() => {
-                    setCurrentItemId(data.id);
-                    setModalRemove(true);
-                  }}
-                >
-                  Delete
-                </button>
-              </ButtonContainer>
-            </RightContainer>
-          </GoalItem>
-        );
-      })}
+      {userData[3].data.length === 0 ? (
+        <div style={{ margin: 50 }}>
+          <h3>Nenhuma despesa cadastrada!</h3>
+        </div>
+      ) : (
+        userData[3].data.map((data, index) => {
+          return (
+            <GoalItem key={index}>
+              <CategoryName style={{ flexDirection: width < 400 && "column" }}>
+                <img src={iconsProvider[1]} alt={data.name} />
+                <h3>{data.category}</h3>
+              </CategoryName>
+              <RightContainer>
+                <CashAvailable>
+                  <p>Gasto</p>
+                  <h3>{data.value},00</h3>
+                </CashAvailable>
+                <ButtonContainer>
+                  <button
+                    className="edit"
+                    onClick={() => {
+                      setCurrentItemId(data.id);
+                      setModalEditCategory(true);
+                    }}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="remove"
+                    onClick={() => {
+                      setCurrentItemId(data.id);
+                      setModalRemove(true);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </ButtonContainer>
+              </RightContainer>
+            </GoalItem>
+          );
+        })
+      )}
     </Container>
   );
 };
