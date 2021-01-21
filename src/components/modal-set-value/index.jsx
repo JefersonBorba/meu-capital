@@ -8,7 +8,13 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
-const SetValue = ({ width, currentItem, setModalAddValue, wallet = false }) => {
+const SetValue = ({
+  width,
+  currentItem,
+  setModalAddValue,
+  wallet = false,
+  goals = false,
+}) => {
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
 
@@ -16,7 +22,10 @@ const SetValue = ({ width, currentItem, setModalAddValue, wallet = false }) => {
   const walletId = userData[1].data[0].id;
 
   const walletUrl = `https://meucapital.herokuapp.com/wallet/${walletId}`;
+  const goalsUrl = `https://meucapital.herokuapp.com/goals/`;
+
   let token = window.localStorage.getItem("accessToken");
+  let decoded = jwt_decode(token);
 
   const header = {
     headers: { Authorization: `Bearer ${token}` },
@@ -31,17 +40,38 @@ const SetValue = ({ width, currentItem, setModalAddValue, wallet = false }) => {
   });
 
   const handleForm = (data) => {
-    const newBalance = data.saldo + currentBalance;
+    if (goals) {
+      axios
+        .post(
+          goalsUrl,
+          {
+            name: currentItem.category,
+            available: data.saldo,
+            spent: 0,
+            userId: `${decoded.sub}`,
+          },
+          header
+        )
+        .then((res) => {
+          console.log(res);
+          setModalAddValue(false);
+        })
+        .catch((err) => console.log(err));
+    }
 
-    console.log(newBalance);
+    if (wallet) {
+      const newBalance = data.saldo + currentBalance;
 
-    axios
-      .patch(walletUrl, { saldo: newBalance }, header)
-      .then((res) => {
-        console.log(res);
-        setModalAddValue(false);
-      })
-      .catch((err) => console.log(err));
+      console.log(newBalance);
+
+      axios
+        .patch(walletUrl, { saldo: newBalance }, header)
+        .then((res) => {
+          console.log(res);
+          setModalAddValue(false);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
