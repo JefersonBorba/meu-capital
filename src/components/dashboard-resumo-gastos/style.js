@@ -9,6 +9,7 @@ export const Container = styled.div`
   height: auto;
   border-radius: 30px;
   margin-bottom: 30px;
+  padding: 2rem 0;
 
   h3 {
     color: white;
@@ -52,6 +53,7 @@ export const ExpensesContainer = styled.div`
   p {
     color: white;
     text-align: center;
+    margin-top: 10px;
   }
 
   @media only screen and (max-width: 900px) {
@@ -73,8 +75,7 @@ export const ExpensesContainer = styled.div`
 `;
 
 export const Income = styled.div`
-  padding: 1rem 0;
-
+  width: 100%;
   margin: 10px;
 
   display: flex;
@@ -85,18 +86,16 @@ export const Income = styled.div`
 `;
 
 export const Outcome = styled.div`
+  width: 100%;
   margin: 10px;
 
-  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
   background-color: #1b1a43;
   border-radius: 10px;
 `;
 export const Value = styled.div`
-  padding: 0.3rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -109,6 +108,7 @@ export const Value = styled.div`
   h2 {
     color: white;
     padding: 0.3rem;
+    font-size: 43px;
   }
   .up {
     display: flex;
@@ -128,12 +128,7 @@ export const Value = styled.div`
   @media only screen and (max-width: 550px) {
     flex-direction: column;
   }
-  .up {
-    margin: 15px 0;
-  }
-  .down {
-    margin: 15px 0;
-  }
+
   div {
     width: 50px;
     height: 50px;
