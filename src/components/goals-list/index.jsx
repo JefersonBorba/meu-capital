@@ -9,12 +9,9 @@ import {
   CategoryName,
   Header,
   AddGoal,
-  PopoverItem,
+  ButtonContainer
 } from "./style";
 import { AiOutlinePlus } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
 
 import SelectCategory from "../modal-select-category";
 import SetValue from "../modal-set-value";
@@ -28,7 +25,6 @@ const GoalsList = () => {
   const [modalEditValue, setModalEditValue] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [currentItem, setCurrentItem] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [currentItemId, setCurrentItemId] = useState();
@@ -54,15 +50,6 @@ const GoalsList = () => {
     setModalEditValue(true);
     setCurrentItem({ category: name });
   };
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
 
   return (
     <Container style={{ width: width < 700 && "75vw" }}>
@@ -116,8 +103,6 @@ const GoalsList = () => {
         />
       )}
       {userData[2].data.map((data, index) => {
-        // console.log(data.id);
-
         return (
           <GoalItem key={index}>
             <CategoryName style={{ flexDirection: width < 400 && "column" }}>
@@ -129,62 +114,26 @@ const GoalsList = () => {
                 <p>Disponível</p>
                 <h3>{data.available},00</h3>
                 <p>{data.spent},00</p>
-                <button
-                  onClick={() => {
-                    setCurrentItemId(data.id);
-                    setModalRemove(true);
-                  }}
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentItemId(data.id);
-                    setModalEditCategory(true);
-                  }}
-                >
-                  Editar
-                </button>
+                
               </CashAvailable>
-              <BsThreeDotsVertical
-                cursor="pointer"
-                onClick={handleClick}
-                size="25"
-              />
-              <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "center",
-                }}
-              >
-                <Typography>
-                  <PopoverItem
+                <ButtonContainer>
+                  <button className="edit"
                     onClick={() => {
+                      setCurrentItemId(data.id);
                       setModalEditCategory(true);
-                      handleClose();
                     }}
                   >
                     Editar
-                  </PopoverItem>
-                  <PopoverItem
+                  </button>
+                  <button className="remove"
                     onClick={() => {
-                      // setCurrentItemDel(data.id);
+                      setCurrentItemId(data.id);
                       setModalRemove(true);
-                      handleClose();
                     }}
                   >
-                    Remover
-                  </PopoverItem>
-                </Typography>
-              </Popover>
+                    Delete
+                  </button>
+                </ButtonContainer>
             </RightContainer>
           </GoalItem>
         );

@@ -65,9 +65,9 @@ const Wallet = () => {
                       }}
                     >
                       R${" "}
-                      {userData[1].data[0].saldo
+                      {userData[1].data[0].gastos
                         ? userData[1].data[0].saldo - userData[1].data[0].gastos
-                        : "00"}
+                        : userData[1].data[0].saldo}
                       ,00
                     </h1>
                     <h2>Total</h2>

@@ -15,7 +15,7 @@ export const Modal = styled.div`
     align-items: center;
     justify-content: space-evenly;
     input{
-        width: 75%;
+        width: 100%;
         height: 50px;
         border-radius: 20px;
         border: 0;
@@ -27,14 +27,27 @@ export const Modal = styled.div`
     div:hover{
         cursor:pointer;
     }
-`;
-export const Button = styled.div`
-    width: 75%;
-    height: 50px;
-    background-color: #6dfa7b;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button{
+        background-color: #5cc567;
+        border: none;
+        height: 7vh;
+        width: 10vw;
+        color: white;
+        font-weight: bold;
+        margin: 4px;
+        border-radius: 3px;
+        margin-top: 10px;
+        box-shadow: 2px 2px 3px black;
+        transition: box-shadow .5s;
+        :hover{
+            box-shadow: 3px 3px 4px black;
+            cursor: pointer;
+            
+    }
+    }
 `;
