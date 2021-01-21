@@ -5,12 +5,13 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { refreshUserThunk} from "../../store/modules/authenticated-user/thunk"
 
 const SetValue = ({ width, currentItem, setModalEditValue, currentItemId }) => {
   console.log(currentItem);
   console.log(currentItemId);
-
+  const dispatch = useDispatch();
   let token = window.localStorage.getItem("accessToken");
 
   const header = {
@@ -41,6 +42,7 @@ const SetValue = ({ width, currentItem, setModalEditValue, currentItemId }) => {
         console.log(res);
         setModalEditValue(false);
       })
+      .then(() => dispatch(refreshUserThunk()))
       .catch((err) => console.log(err));
   };
 

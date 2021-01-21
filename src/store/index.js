@@ -2,14 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
   authenticatedUserReducer,
   userAllowedReducer,
-  userLoginFailedReducer
+  userLoginFailedReducer,
 } from "./modules/authenticated-user/reducer";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
   user: authenticatedUserReducer,
   isAllowed: userAllowedReducer,
-  userLoginFailed:userLoginFailedReducer
+  userLoginFailed:userLoginFailedReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));

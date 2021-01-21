@@ -1,10 +1,12 @@
 import { Modal, Button } from "./style";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
+import {useDispatch} from "react-redux"
+import { refreshUserThunk} from "../../store/modules/authenticated-user/thunk"
 
 const RemoveConfirmation = ({ width, setModalRemove, currentItemId }) => {
   console.log(currentItemId);
-
+  const dispatch = useDispatch();
   let token = window.localStorage.getItem("accessToken");
 
   const goalsUrl = `https://meucapital.herokuapp.com/goals/${currentItemId}`;
@@ -19,6 +21,7 @@ const RemoveConfirmation = ({ width, setModalRemove, currentItemId }) => {
       .then((res) => {
         console.log(res);
       })
+      .then(() => dispatch(refreshUserThunk()))
       .catch((err) => console.log(err));
   };
 
