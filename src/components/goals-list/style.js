@@ -68,7 +68,7 @@ export const Header = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 45vw;
+  width: 82%;
   height: 50px;
 `;
 export const AddGoal = styled.div`
@@ -77,11 +77,39 @@ export const AddGoal = styled.div`
   background-color: #5cc567;
   border-radius: 50%;
 `;
-export const PopoverItem = styled.h3`
-  background-color: #1d1d42;
-  padding: 8px;
-  color: white;
-  :hover {
-    cursor: pointer;
+export const ButtonContainer = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .edit{
+    background-color: #5cc567;
+    border: none;
+    height: 25px;
+    color: white;
+    font-weight: bold;
+    margin: 4px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px black;
+    transition: box-shadow .5s;
+    :hover{
+      box-shadow: 3px 3px 4px black;
+      cursor: pointer;
+    }
+  }
+  .remove{
+    background-color: #E9666D;
+    border: none;
+    height: 25px;
+    width: 70px;
+    color: white;
+    font-weight: bold;
+    margin: 4px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px black;
+    transition: box-shadow .5s;
+    :hover{
+      box-shadow: 3px 3px 4px black;
+      cursor: pointer;
+    }
   }
 `;

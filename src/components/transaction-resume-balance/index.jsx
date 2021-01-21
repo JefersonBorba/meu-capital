@@ -15,7 +15,7 @@ const ResumeBalance = () => {
           </div>
           <div className="info">
             <p>Ganhos</p>
-            <h2>{userData[1].data[0].saldo},00 R$</h2>
+            <h2>{userData[1].data[0].saldo ? userData[1].data[0].saldo : "00"},00 R$</h2>
           </div>
         </Value>
       </Income>
@@ -26,7 +26,7 @@ const ResumeBalance = () => {
           </div>
           <div className="info">
             <p>Gastos</p>
-            <h2>{userData[1].data[0].gastos},00 R$</h2>
+            <h2>{userData[1].data[0].gastos ? userData[1].data[0].gastos : "00"},00 R$</h2>
           </div>
         </Value>
       </Outcome>
