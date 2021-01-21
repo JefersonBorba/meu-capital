@@ -3,8 +3,8 @@ import HomeContent from "../../components/home-content";
 import HomeBox from "../../components/home-box";
 import HomeAvatar from "../../components/home-avatar";
 import HomeFooter from "../../components/home-footer";
-import login from "../../assets/img/login.svg";
 import landing from "../../assets/img/landing.svg";
+import landing2 from "../../assets/img/landing2.svg";
 import target from "../../assets/img/target.svg";
 import chart from "../../assets/img/chart.svg";
 import card from "../../assets/img/card.svg";
@@ -14,7 +14,7 @@ const Home = () => (
   <StyledDiv>
     <HomeHeader />
     <HomeContent
-      img={login}
+      img={landing2}
       alt={"mulher sentada em uma engrenagem"}
       title={"Tempo é dinheiro"}
       paragraph={
