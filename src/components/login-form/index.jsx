@@ -11,7 +11,7 @@ import SnackbarAlert from "../snackbarAlert";
 const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const userLoginFailedState = useSelector(state => state.userLoginFailed)
 
   const schema = yup.object().shape({
     email: yup
@@ -62,6 +62,8 @@ const LoginForm = () => {
         </div>
       </form>
       <SnackbarAlert
+          openStatate={userLoginFailedState}
+          setOpenState='login'
           severity='error'
           message="Email ou Senha inválidos!"
         />

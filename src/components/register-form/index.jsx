@@ -5,10 +5,9 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import jwt_decode from "jwt-decode";
-import Snackbar from "@material-ui/core/Snackbar";
-import { Alert } from "@material-ui/lab";
 
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
+import SnackbarAlert from "../snackbarAlert";
 
 const RegisterForm = () => {
   const history = useHistory();
@@ -103,6 +102,7 @@ const RegisterForm = () => {
             }, 2500);
           })
           .catch((err) => {
+            setOpen(false)
             setSnackbarError(true);
             console.error(err);
           });
@@ -181,21 +181,19 @@ const RegisterForm = () => {
         </form>
       </FormContainer>
       {snackbarError ? (
-        <Snackbar
-          open={snackbarError}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          <Alert onClose={handleClose} severity="error">
-            Erro ao cadastrar!
-          </Alert>
-        </Snackbar>
+        <SnackbarAlert
+          message="Erro ao cadastrar!"
+          openStatate={snackbarError}
+          setOpenState={setSnackbarError}
+          severity="error"
+        />
       ) : (
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="success">
-            Usuário criado com sucesso!
-          </Alert>
-        </Snackbar>
+        <SnackbarAlert
+          message="Usuário criado com sucesso!"
+          openStatate={open}
+          setOpenState={setOpen}
+          severity="success"
+        />
       )}
     </>
   );

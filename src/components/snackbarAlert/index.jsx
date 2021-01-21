@@ -1,27 +1,34 @@
 import React from 'react';
 import MuiAlert from '@material-ui/lab/Alert';
 import { SnackbarAlertContainer } from './style';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {userLoginFailed} from '../../store/modules/authenticated-user/actions'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const SnackbarAlert = ({severity, message, openState}) => {
-  const userLoginFailedState = useSelector(state => state.userLoginFailed)
+const SnackbarAlert = ({severity, message, openStatate, setOpenState}) => {
+
   const dispatch = useDispatch()
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-    dispatch(userLoginFailed(false));
-    console.log(userLoginFailedState)
+    if(setOpenState === 'login'){
+      dispatch(userLoginFailed(false))
+      return
+    }
+    setOpenState(false)
   };
 
   return (
-    <SnackbarAlertContainer open={userLoginFailedState} autoHideDuration={3000} onClose={handleClose}>
+    <SnackbarAlertContainer 
+      open={openStatate} 
+      autoHideDuration={3000} 
+      onClose={handleClose}
+    >
 
         <Alert onClose={handleClose} severity={severity}>
           {message}
