@@ -179,21 +179,18 @@ const RegisterForm = () => {
           </div>
         </form>
       </FormContainer>
-      {snackbarError ? (
-        <SnackbarAlert
+      <SnackbarAlert
           message="Erro ao cadastrar!"
           openStatate={snackbarError}
           setOpenState={setSnackbarError}
           severity="error"
         />
-      ) : (
         <SnackbarAlert
           message="Usuário criado com sucesso!"
           openStatate={open}
           setOpenState={setOpen}
           severity="success"
         />
-      )}
     </>
   );
 };
