@@ -3,7 +3,7 @@ import SideMenu from "../../components/dashboard-sidemenu";
 import ResumeBalance from "../../components/transaction-resume-balance";
 import PizzaChart from "../../components/pizzachart";
 import DashboardLineChart from "../../components/dashboard-linechart";
-import SetValue from "../../components/modal-set-value"
+import SetValue from "../../components/modal-set-value";
 import { AiOutlinePlus } from "react-icons/ai";
 
 import {
@@ -13,7 +13,7 @@ import {
   Content,
   Balance,
   BalanceContent,
-  AddValue
+  AddValue,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ import { useState, useEffect } from "react";
 const Wallet = () => {
   const isAllowedSelector = useSelector((state) => state.isAllowed);
   const history = useHistory();
-  const selectUser = state => state.user;
+  const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
   const [modalAddValue, setModalAddValue] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
@@ -47,12 +47,29 @@ const Wallet = () => {
                     <AiOutlinePlus fill="white" size="30" cursor="pointer" />
                   </AddValue>
                   {modalAddValue && (
-                    <SetValue width={width} setModalAddValue={setModalAddValue} currentItem="Carteira" />
+                    <SetValue
+                      width={width}
+                      setModalAddValue={setModalAddValue}
+                      currentItem="Carteira"
+                      wallet
+                    />
                   )}
                   <BalanceContent>
-                    <h1 style={{color: `${userData[1].data[0].saldo - userData[1].data[0].gastos < 0 && "#E9666D"}`}}>
-                      R$ {userData[1].data[0].saldo ? userData[1].data[0].saldo - userData[1].data[0].gastos : "00"},00
-                      </h1>
+                    <h1
+                      style={{
+                        color: `${
+                          userData[1].data[0].saldo -
+                            userData[1].data[0].gastos <
+                            0 && "#E9666D"
+                        }`,
+                      }}
+                    >
+                      R${" "}
+                      {userData[1].data[0].saldo
+                        ? userData[1].data[0].saldo - userData[1].data[0].gastos
+                        : "00"}
+                      ,00
+                    </h1>
                     <h2>Total</h2>
                   </BalanceContent>
                 </Balance>
