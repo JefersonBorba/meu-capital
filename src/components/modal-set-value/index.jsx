@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import {useDispatch} from "react-redux"
-import { refreshUserThunk} from "../../store/modules/authenticated-user/thunk"
+import { useDispatch } from "react-redux";
+import { refreshUserThunk } from "../../store/modules/authenticated-user/thunk";
 
 const SetValue = ({
   width,
@@ -15,6 +15,7 @@ const SetValue = ({
   setModalAddValue,
   wallet = false,
   goals = false,
+  transaction = false,
 }) => {
   const dispatch = useDispatch();
   const selectUser = (state) => state.user;
@@ -25,6 +26,7 @@ const SetValue = ({
 
   const walletUrl = `https://meucapital.herokuapp.com/wallet/${walletId}`;
   const goalsUrl = `https://meucapital.herokuapp.com/goals/`;
+  const spentUrl = `https://meucapital.herokuapp.com/spentByCategory/`;
 
   let token = window.localStorage.getItem("accessToken");
   let decoded = jwt_decode(token);
@@ -50,6 +52,25 @@ const SetValue = ({
             name: currentItem.category,
             available: data.saldo,
             spent: 0,
+            userId: `${decoded.sub}`,
+          },
+          header
+        )
+        .then((res) => {
+          console.log(res);
+          setModalAddValue(false);
+        })
+        .then(() => dispatch(refreshUserThunk()))
+        .catch((err) => console.log(err));
+    }
+
+    if (transaction) {
+      axios
+        .post(
+          spentUrl,
+          {
+            category: currentItem.category,
+            value: data.saldo,
             userId: `${decoded.sub}`,
           },
           header

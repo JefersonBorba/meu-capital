@@ -1,14 +1,19 @@
-import { Modal, Button } from "./style";
+import { Modal } from "./style";
 import { IoMdClose } from "react-icons/io";
-import jwt_decode from "jwt-decode";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { refreshUserThunk} from "../../store/modules/authenticated-user/thunk"
+import { useDispatch } from "react-redux";
+import { refreshUserThunk } from "../../store/modules/authenticated-user/thunk";
 
-const SetValue = ({ width, currentItem, setModalEditValue, currentItemId }) => {
+const SetValue = ({
+  width,
+  currentItem,
+  setModalEditValue,
+  currentItemId,
+  transaction = false,
+}) => {
   console.log(currentItem);
   console.log(currentItemId);
   const dispatch = useDispatch();
@@ -27,23 +32,42 @@ const SetValue = ({ width, currentItem, setModalEditValue, currentItemId }) => {
   });
 
   const goalsUrl = `https://meucapital.herokuapp.com/goals/${currentItemId}`;
+  const spentUrl = `https://meucapital.herokuapp.com/spentByCategory/${currentItemId}`;
 
   const handleForm = (data) => {
-    axios
-      .patch(
-        goalsUrl,
-        {
-          name: currentItem.category,
-          available: data.goal,
-        },
-        header
-      )
-      .then((res) => {
-        console.log(res);
-        setModalEditValue(false);
-      })
-      .then(() => dispatch(refreshUserThunk()))
-      .catch((err) => console.log(err));
+    if (transaction) {
+      axios
+        .patch(
+          spentUrl,
+          {
+            category: currentItem.category,
+            value: data.goal,
+          },
+          header
+        )
+        .then((res) => {
+          console.log(res);
+          setModalEditValue(false);
+        })
+        .then(() => dispatch(refreshUserThunk()))
+        .catch((err) => console.log(err));
+    } else {
+      axios
+        .patch(
+          goalsUrl,
+          {
+            name: currentItem.category,
+            available: data.goal,
+          },
+          header
+        )
+        .then((res) => {
+          console.log(res);
+          setModalEditValue(false);
+        })
+        .then(() => dispatch(refreshUserThunk()))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (

@@ -26,7 +26,7 @@ const ResumoGastos = () => {
 
   const dataGraph = [
     {
-      name: "teste",
+      name: "Gastos x Despesas",
       saldo: userData[1].data[0].saldo,
       gastos: userData[3].data.reduce((acc, curr) => acc + curr.value, 0),
     },
@@ -47,7 +47,7 @@ const ResumoGastos = () => {
               </div>
               <h2>
                 {width > 400 && <span>R$</span>}
-                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "00"}
+                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "0"}
                 ,00
               </h2>
             </Value>
@@ -61,7 +61,9 @@ const ResumoGastos = () => {
               <h2>
                 {console.log(userData[3].data)}
                 {width > 400 && <span>R$</span>}
-                {userData[3].data.reduce((acc, curr) => acc + curr.value, 0)}
+                {userData[3].data[0]
+                  ? userData[3].data.reduce((acc, curr) => acc + curr.value, 0)
+                  : "00"}
                 ,00
               </h2>
             </Value>

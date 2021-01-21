@@ -42,8 +42,6 @@ const RegisterForm = () => {
         let token = res.data.accessToken;
         let decoded = jwt_decode(token);
 
-        const urlSpentByCategory =
-          "https://meucapital.herokuapp.com/spentByCategory";
         const urlWallet = "https://meucapital.herokuapp.com/wallet";
         const urlGoals = "https://meucapital.herokuapp.com/goals";
 
@@ -53,14 +51,6 @@ const RegisterForm = () => {
 
         const requestWallet = {
           saldo: 0,
-          userId: `${decoded.sub}`,
-        };
-
-        const requestSpentByCategory = {
-          name: "01/01",
-          comida: 0,
-          transporte: 0,
-          outros: 0,
           userId: `${decoded.sub}`,
         };
 
@@ -88,7 +78,6 @@ const RegisterForm = () => {
         axios
           .all([
             axios.post(urlWallet, requestWallet, header),
-            axios.post(urlSpentByCategory, requestSpentByCategory, header),
             axios.post(urlGoals, requestGoals1, header),
             axios.post(urlGoals, requestGoals2, header),
             axios.post(urlGoals, requestGoals3, header),
@@ -101,7 +90,7 @@ const RegisterForm = () => {
             }, 2500);
           })
           .catch((err) => {
-            setOpen(false)
+            setOpen(false);
             setSnackbarError(true);
             console.error(err);
           });
@@ -180,17 +169,17 @@ const RegisterForm = () => {
         </form>
       </FormContainer>
       <SnackbarAlert
-          message="Erro ao cadastrar!"
-          openStatate={snackbarError}
-          setOpenState={setSnackbarError}
-          severity="error"
-        />
-        <SnackbarAlert
-          message="Usuário criado com sucesso!"
-          openStatate={open}
-          setOpenState={setOpen}
-          severity="success"
-        />
+        message="Erro ao cadastrar!"
+        openStatate={snackbarError}
+        setOpenState={setSnackbarError}
+        severity="error"
+      />
+      <SnackbarAlert
+        message="Usuário criado com sucesso!"
+        openStatate={open}
+        setOpenState={setOpen}
+        severity="success"
+      />
     </>
   );
 };
