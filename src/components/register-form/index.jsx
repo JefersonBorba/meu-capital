@@ -66,21 +66,21 @@ const RegisterForm = () => {
         };
 
         const requestGoals1 = {
-          name: "educação",
+          name: "Educação",
           available: 100,
           spent: 0,
           userId: `${decoded.sub}`,
         };
 
         const requestGoals2 = {
-          name: "saúde",
+          name: "Saúde",
           available: 100,
           spent: 0,
           userId: `${decoded.sub}`,
         };
 
         const requestGoals3 = {
-          name: "transporte",
+          name: "Transporte",
           available: 100,
           spent: 0,
           userId: `${decoded.sub}`,
