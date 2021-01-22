@@ -12,4 +12,5 @@ const Login = () => {
     </StyledFade>
   );
 };
+
 export default Login;

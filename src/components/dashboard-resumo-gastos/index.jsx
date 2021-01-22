@@ -7,7 +7,7 @@ import {
   Income,
   Outcome,
   Value,
-} from "./style";
+} from "./styles";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { BarChart, Bar, XAxis, Tooltip, Legend } from "recharts";
 
@@ -16,7 +16,6 @@ const ResumoGastos = () => {
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
-
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
   useEffect(() => {
@@ -31,8 +30,6 @@ const ResumoGastos = () => {
       gastos: userData[3].data.reduce((acc, curr) => acc + curr.value, 0),
     },
   ];
-
-  console.log(userData[1].data);
 
   return (
     <Container>
@@ -58,7 +55,6 @@ const ResumoGastos = () => {
                 <AiOutlineArrowDown fill="white" size="30" />
               </div>
               <h2>
-                {console.log(userData[3].data)}
                 {width > 400 && <span>R$</span>}
                 {userData[3].data[0]
                   ? userData[3].data.reduce((acc, curr) => acc + curr.value, 0)

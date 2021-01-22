@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-
 import { Container, Content, LinearProgress, Bar } from "./styles";
 
 const ResumeGoal = () => {
@@ -19,7 +18,7 @@ const ResumeGoal = () => {
     (previousScore, currentScore, index) => previousScore + currentScore,
     0
   );
-  console.log((spentReducer / goalReducer) * 100);
+
   return (
     <Container>
       <Content>

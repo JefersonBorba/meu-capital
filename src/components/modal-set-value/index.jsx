@@ -57,11 +57,10 @@ const SetValue = ({
           header
         )
         .then((res) => {
-          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
 
     if (transaction) {
@@ -76,26 +75,22 @@ const SetValue = ({
           header
         )
         .then((res) => {
-          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
 
     if (wallet) {
       const newBalance = data.saldo + currentBalance;
 
-      console.log(newBalance);
-
       axios
         .patch(walletUrl, { saldo: newBalance }, header)
         .then((res) => {
-          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 

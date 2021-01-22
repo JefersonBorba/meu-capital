@@ -65,4 +65,5 @@ const Home = () => (
     <HomeFooter />
   </StyledDiv>
 );
+
 export default Home;

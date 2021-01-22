@@ -11,7 +11,6 @@ export default function SimpleMenu() {
   const history = useHistory();
   const dispatch = useDispatch();
   const isAllowedSelector = useSelector((state) => state.isAllowed);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {

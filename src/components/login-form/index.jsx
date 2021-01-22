@@ -4,14 +4,13 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { authenticatedUserThunk } from "../../store/modules/authenticated-user/thunk";
 import { useDispatch, useSelector } from "react-redux";
-
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 import SnackbarAlert from "../snackbarAlert";
 
 const LoginForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const userLoginFailedState = useSelector(state => state.userLoginFailed)
+  const userLoginFailedState = useSelector((state) => state.userLoginFailed);
 
   const schema = yup.object().shape({
     email: yup
@@ -28,7 +27,6 @@ const LoginForm = () => {
   const handleForm = (data) => {
     dispatch(authenticatedUserThunk(data, history));
   };
-
 
   return (
     <FormContainer>
@@ -62,11 +60,11 @@ const LoginForm = () => {
         </div>
       </form>
       <SnackbarAlert
-          openStatate={userLoginFailedState}
-          setOpenState='login'
-          severity='error'
-          message="Email ou Senha inválidos!"
-        />
+        openState={userLoginFailedState}
+        setOpenState="login"
+        severity="error"
+        message="Email ou Senha inválidos!"
+      />
     </FormContainer>
   );
 };

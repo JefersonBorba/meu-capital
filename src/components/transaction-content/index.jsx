@@ -51,7 +51,6 @@ const ContentTransaction = () => {
     setCurrentItem({ category: name });
   };
 
-  console.log(userData[3].data);
   return (
     <Container style={{ width: width < 700 && "75vw" }}>
       <Header>

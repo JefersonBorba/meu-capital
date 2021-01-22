@@ -14,8 +14,6 @@ const SetValue = ({
   currentItemId,
   transaction = false,
 }) => {
-  console.log(currentItem);
-  console.log(currentItemId);
   const dispatch = useDispatch();
   let token = window.localStorage.getItem("accessToken");
 
@@ -46,11 +44,10 @@ const SetValue = ({
           header
         )
         .then((res) => {
-          console.log(res);
           setModalEditValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     } else {
       axios
         .patch(
@@ -62,11 +59,11 @@ const SetValue = ({
           header
         )
         .then((res) => {
-          console.log(res);
+          console.error(res);
           setModalEditValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 

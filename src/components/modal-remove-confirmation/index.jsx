@@ -10,8 +10,6 @@ const RemoveConfirmation = ({
   currentItemId,
   transaction = false,
 }) => {
-  console.log(currentItemId);
-  console.log(transaction);
   const dispatch = useDispatch();
   let token = window.localStorage.getItem("accessToken");
 
@@ -26,19 +24,13 @@ const RemoveConfirmation = ({
     if (transaction) {
       axios
         .delete(spentUrl, header)
-        .then((res) => {
-          console.log(res);
-        })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     } else {
       axios
         .delete(goalsUrl, header)
-        .then((res) => {
-          console.log(res);
-        })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 

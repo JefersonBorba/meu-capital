@@ -7,11 +7,11 @@ export const Container = styled.div`
   background-color: #1d1d42;
   color: white;
 `;
+
 export const Content = styled.div``;
 
 export const Card = styled.div`
   padding: 10px;
-
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -23,6 +23,7 @@ export const Card = styled.div`
   :hover {
     background-color: #2e2e64;
   }
+
   img {
     width: 30px;
     height: 30px;
@@ -32,6 +33,7 @@ export const Card = styled.div`
   h2 {
     font-size: 15px;
   }
+
   p {
     font-size: 10px;
   }
