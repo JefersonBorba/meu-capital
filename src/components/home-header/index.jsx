@@ -1,12 +1,30 @@
-import styled from "styled-components";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-
+import {
+  StyledDiv,
+  StyledLogoContainer,
+  StyledSplitButtonContainer,
+  StyledNormalButtonContainer,
+  StyledButton,
+} from "./styles";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { userAllowed } from "../../store/modules/authenticated-user/actions";
+import { useHistory } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 
 import SplitButton from "./split-button";
 
 const HomeHeader = () => {
+  const isAllowedSelector = useSelector((state) => state.isAllowed);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleLogout = () => {
+    history.push("/");
+    window.localStorage.clear();
+    dispatch(userAllowed(false));
+  };
+
   return (
     <StyledDiv>
       <StyledLogoContainer>
@@ -16,78 +34,47 @@ const HomeHeader = () => {
       <StyledSplitButtonContainer>
         <SplitButton />
       </StyledSplitButtonContainer>
-      <StyledNormalButtonContainer>
-        <Button
-          component={Link}
-          to="/register"
-          size="small"
-          variant="contained"
-          color="primary"
-          style={{ height: "30px" }}
-        >
-          Login
-        </Button>
-        <Button
-          component={Link}
-          to="/login"
-          size="small"
-          variant="contained"
-          color="primary"
-          style={{ height: "30px", marginLeft: "5px" }}
-        >
-          Register
-        </Button>
-      </StyledNormalButtonContainer>
+      {isAllowedSelector ? (
+        <StyledNormalButtonContainer>
+          <StyledButton
+            component={Link}
+            to="/dashboard"
+            variant="contained"
+            color="primary"
+          >
+            Dashboard
+          </StyledButton>
+          <StyledButton
+            variant="contained"
+            style={{ marginLeft: "5px" }}
+            onClick={handleLogout}
+          >
+            Logout
+          </StyledButton>
+        </StyledNormalButtonContainer>
+      ) : (
+        <StyledNormalButtonContainer>
+          <StyledButton
+            component={Link}
+            to="/login"
+            variant="contained"
+            color="primary"
+          >
+            Login
+          </StyledButton>
+          <StyledButton
+            component={Link}
+            to="/register"
+            variant="contained"
+            color="primary"
+            style={{ marginLeft: "5px" }}
+          >
+            Register
+          </StyledButton>
+        </StyledNormalButtonContainer>
+      )}
     </StyledDiv>
   );
 };
 
 export default HomeHeader;
-
-const StyledDiv = styled.div`
-  background: #183161;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 6px;
-`;
-
-const StyledLogoContainer = styled.div`
-  height: 30px;
-  display: flex;
-  align-items: center;
-
-  img {
-    max-height: 100%;
-    height: auto;
-  }
-
-  span {
-    margin-left: 5px;
-    font-family: Ubuntu;
-    color: white;
-    display: none;
-  }
-
-  @media (min-width: 425px) {
-    span {
-      display: inline;
-    }
-  }
-`;
-
-const StyledSplitButtonContainer = styled.div`
-  height: 35px;
-
-  @media (min-width: 425px) {
-    display: none;
-  }
-`;
-
-const StyledNormalButtonContainer = styled.div`
-  display: none;
-  @media (min-width: 425px) {
-    height: 35px;
-    display: flex;
-  }
-`;
