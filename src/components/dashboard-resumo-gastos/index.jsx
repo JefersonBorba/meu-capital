@@ -38,7 +38,6 @@ const ResumoGastos = () => {
     <Container>
       <ExpensesContainer>
         <h3>Todos os Gastos</h3>
-        <div className="breakable">
           <Income>
             <p>Ganhos</p>
             <Value>
@@ -68,7 +67,6 @@ const ResumoGastos = () => {
               </h2>
             </Value>
           </Outcome>
-        </div>
       </ExpensesContainer>
       <GraphContainer>
         <BarChart
