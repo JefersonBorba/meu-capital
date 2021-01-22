@@ -40,7 +40,7 @@ export const Modal = styled.div`
         background-color: #5cc567;
         border: none;
         height: 7vh;
-        width: 10vw;
+        width: 150px;
         color: white;
         font-weight: bold;
         margin: 4px;

@@ -11,12 +11,10 @@ export const Container = styled.div`
   align-items: center;
   color: white;
   transition: max-height 3s linear, min-height 3s linear;
-  .showCategories {
-    overflow: hidden;
-    min-height: 500px;
-  }
-  .dontShowCategories {
-    min-height: 300px;
+  h3 {
+    @media only screen and (max-width: 600px) {
+      font-size: 15px;
+    }
   }
 `;
 export const GoalItem = styled.div`
@@ -33,6 +31,10 @@ export const GoalItem = styled.div`
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    @media only screen and (max-width: 600px) {
+      width: 25px;
+      height: 25px;
+    }
   }
 `;
 export const RightContainer = styled.div`
@@ -50,6 +52,9 @@ export const CashAvailable = styled.div`
   flex-direction: column;
   align-items: center;
   margin-right: 10px;
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+  }
   p {
     font-size: 12px;
   }
@@ -59,8 +64,16 @@ export const CategoryName = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 10px;
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+}
+  
   h3 {
     margin-left: 10px;
+    @media only screen and (max-width: 600px) {
+      font-size: 15px;
+      margin-left: 2px;
+    }
   }
 `;
 export const Header = styled.div`
@@ -83,6 +96,9 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   .edit {
     background-color: #5cc567;
+    @media only screen and (max-width: 600px) {
+      width: 50px;
+    }
     border: none;
     height: 25px;
     color: white;
@@ -110,6 +126,9 @@ export const ButtonContainer = styled.div`
     :hover {
       box-shadow: 3px 3px 4px black;
       cursor: pointer;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 50px;
     }
   }
 `;

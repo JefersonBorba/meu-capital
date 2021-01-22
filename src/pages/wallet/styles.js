@@ -92,12 +92,15 @@ export const BalanceContent = styled.div`
   }
 
   @media only screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h1 {
-      font-size: 1rem;
+      font-size: 1.5rem;
       margin-right: 10px;
     }
     h2 {
-      font-size: 0.5rem;
+      font-size: 1rem;
     }
   }
 `;

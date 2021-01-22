@@ -2,7 +2,6 @@ import Header from "../../components/header";
 import SideMenu from "../../components/dashboard-sidemenu";
 import ResumeBalance from "../../components/transaction-resume-balance";
 import PizzaChart from "../../components/pizzachart";
-import DashboardLineChart from "../../components/dashboard-linechart";
 import SetValue from "../../components/modal-set-value";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -73,7 +72,6 @@ const Wallet = () => {
                     <h2>Total</h2>
                   </BalanceContent>
                 </Balance>
-                <DashboardLineChart />
               </Content>
               <RightContainer>
                 <ResumeBalance />

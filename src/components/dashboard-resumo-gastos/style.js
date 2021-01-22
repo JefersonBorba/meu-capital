@@ -56,14 +56,6 @@ export const ExpensesContainer = styled.div`
     margin-top: 10px;
   }
 
-  @media only screen and (max-width: 900px) {
-    .breakable {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-    }
-  }
-
   @media only screen and (max-width: 510px) {
     .breakable {
       width: 100%;
@@ -75,7 +67,7 @@ export const ExpensesContainer = styled.div`
 `;
 
 export const Income = styled.div`
-  width: 100%;
+  width: 80%;
   margin: 10px;
 
   display: flex;
@@ -86,7 +78,7 @@ export const Income = styled.div`
 `;
 
 export const Outcome = styled.div`
-  width: 100%;
+  width: 80%;
   margin: 10px;
 
   display: flex;
