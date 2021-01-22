@@ -1,6 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { Modal, GoalItem, CategoryName } from "./style";
+import { Modal, GoalItem, CategoryName } from "./styles";
 import { categories } from "../../helpers/categories";
 
 const SelectCategory = ({

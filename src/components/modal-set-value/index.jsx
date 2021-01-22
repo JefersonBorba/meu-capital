@@ -1,4 +1,4 @@
-import { Modal } from "./style";
+import { Modal } from "./styles";
 import { IoMdClose } from "react-icons/io";
 import jwt_decode from "jwt-decode";
 import * as yup from "yup";
@@ -57,10 +57,11 @@ const SetValue = ({
           header
         )
         .then((res) => {
+          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.error(err));
+        .catch((err) => console.log(err));
     }
 
     if (transaction) {
@@ -75,22 +76,26 @@ const SetValue = ({
           header
         )
         .then((res) => {
+          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.error(err));
+        .catch((err) => console.log(err));
     }
 
     if (wallet) {
       const newBalance = data.saldo + currentBalance;
 
+      console.log(newBalance);
+
       axios
         .patch(walletUrl, { saldo: newBalance }, header)
         .then((res) => {
+          console.log(res);
           setModalAddValue(false);
         })
         .then(() => dispatch(refreshUserThunk()))
-        .catch((err) => console.error(err));
+        .catch((err) => console.log(err));
     }
   };
 

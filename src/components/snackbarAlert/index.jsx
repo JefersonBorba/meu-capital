@@ -1,6 +1,6 @@
 import React from "react";
 import MuiAlert from "@material-ui/lab/Alert";
-import { SnackbarAlertContainer } from "./style";
+import { SnackbarAlertContainer } from "./styles";
 import { useDispatch } from "react-redux";
 import { userLoginFailed } from "../../store/modules/authenticated-user/actions";
 

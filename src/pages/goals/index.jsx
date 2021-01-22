@@ -3,7 +3,7 @@ import SideMenu from "../../components/dashboard-sidemenu";
 import ResumeGoal from "../../components/dashboard-resume-goal";
 import ResumeTransaction from "../../components/dashboard-resume-transaction";
 import GoalsList from "../../components/goals-list";
-import { Container, RightContainer, Breakable, GoalsContainer } from "./style";
+import { Container, RightContainer, Breakable, GoalsContainer } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 

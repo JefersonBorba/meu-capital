@@ -1,4 +1,4 @@
-import { Modal, Button } from "./style";
+import { Modal, Button } from "./styles";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
 import { useDispatch } from "react-redux";

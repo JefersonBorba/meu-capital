@@ -10,14 +10,14 @@ import {
   Header,
   AddGoal,
   ButtonContainer,
-} from "./style";
+} from "./styles";
 import { AiOutlinePlus } from "react-icons/ai";
-
 import SelectCategory from "../modal-select-category";
 import SetValue from "../modal-set-value";
 import RemoveConfirmation from "../modal-remove-confirmation";
 import EditGoalCategory from "../modal-edit-goal-category";
 import EditValue from "../modal-edit-goal-value";
+
 const ContentTransaction = () => {
   const [modalAddCategory, setModalAddCategory] = useState(false);
   const [modalEditCategory, setModalEditCategory] = useState(false);
@@ -51,6 +51,7 @@ const ContentTransaction = () => {
     setCurrentItem({ category: name });
   };
 
+  console.log(userData[3].data);
   return (
     <Container style={{ width: width < 700 && "75vw" }}>
       <Header>

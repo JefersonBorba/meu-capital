@@ -12,12 +12,12 @@ import {
   ButtonContainer,
 } from "./styles";
 import { AiOutlinePlus } from "react-icons/ai";
+
 import SelectCategory from "../modal-select-category";
 import SetValue from "../modal-set-value";
 import RemoveConfirmation from "../modal-remove-confirmation";
 import EditGoalCategory from "../modal-edit-goal-category";
 import EditValue from "../modal-edit-goal-value";
-
 const GoalsList = () => {
   const [modalAddCategory, setModalAddCategory] = useState(false);
   const [modalEditCategory, setModalEditCategory] = useState(false);

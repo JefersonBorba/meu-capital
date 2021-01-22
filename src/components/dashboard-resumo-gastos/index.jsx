@@ -16,6 +16,7 @@ const ResumoGastos = () => {
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
+
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
   useEffect(() => {
@@ -31,38 +32,41 @@ const ResumoGastos = () => {
     },
   ];
 
+  console.log(userData[1].data);
+
   return (
     <Container>
       <ExpensesContainer>
         <h3>Todos os Gastos</h3>
-          <Income>
-            <p>Ganhos</p>
-            <Value>
-              <div className="up">
-                <AiOutlineArrowUp fill="white" size="30" />
-              </div>
-              <h2>
-                {width > 400 && <span>R$</span>}
-                {userData[1].data[0].saldo ? userData[1].data[0].saldo : "0"}
-                ,00
-              </h2>
-            </Value>
-          </Income>
-          <Outcome>
-            <p>Gastos</p>
-            <Value>
-              <div className="down">
-                <AiOutlineArrowDown fill="white" size="30" />
-              </div>
-              <h2>
-                {width > 400 && <span>R$</span>}
-                {userData[3].data[0]
-                  ? userData[3].data.reduce((acc, curr) => acc + curr.value, 0)
-                  : "00"}
-                ,00
-              </h2>
-            </Value>
-          </Outcome>
+        <Income>
+          <p>Ganhos</p>
+          <Value>
+            <div className="up">
+              <AiOutlineArrowUp fill="white" size="30" />
+            </div>
+            <h2>
+              {width > 400 && <span>R$</span>}
+              {userData[1].data[0].saldo ? userData[1].data[0].saldo : "0"}
+              ,00
+            </h2>
+          </Value>
+        </Income>
+        <Outcome>
+          <p>Gastos</p>
+          <Value>
+            <div className="down">
+              <AiOutlineArrowDown fill="white" size="30" />
+            </div>
+            <h2>
+              {console.log(userData[3].data)}
+              {width > 400 && <span>R$</span>}
+              {userData[3].data[0]
+                ? userData[3].data.reduce((acc, curr) => acc + curr.value, 0)
+                : "00"}
+              ,00
+            </h2>
+          </Value>
+        </Outcome>
       </ExpensesContainer>
       <GraphContainer>
         <BarChart

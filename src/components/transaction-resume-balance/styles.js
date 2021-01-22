@@ -9,11 +9,14 @@ export const Container = styled.div`
   color: white;
   margin-bottom: 30px;
 `;
+
 export const Content = styled.div`
   padding: 15px;
+
   h1 {
     margin-bottom: 10px;
   }
+
   div {
     display: flex;
     justify-content: space-between;
@@ -45,15 +48,18 @@ export const Value = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   div {
     width: 30px;
     height: 30px;
   }
+
   h2 {
     color: white;
     font-size: 18px;
     margin-right: 10px;
   }
+
   .up {
     display: flex;
     justify-content: center;
@@ -61,6 +67,7 @@ export const Value = styled.div`
     border-radius: 10px;
     margin-right: 10px;
   }
+
   .down {
     display: flex;
     justify-content: center;

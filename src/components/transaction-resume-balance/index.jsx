@@ -1,6 +1,7 @@
 import { Container, Content, Income, Outcome, Value } from "./styles";
 import { useSelector } from "react-redux";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+
 const ResumeBalance = () => {
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);

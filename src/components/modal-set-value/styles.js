@@ -25,17 +25,21 @@ export const Modal = styled.div`
     font-size: 20px;
   }
 
-  div:hover {
-    cursor: pointer;
-  }
-
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  div:hover {
+    cursor: pointer;
+  }
+
   button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: #5cc567;
     border: none;
     height: 7vh;

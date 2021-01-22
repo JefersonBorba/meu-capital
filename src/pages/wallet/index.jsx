@@ -4,6 +4,7 @@ import ResumeBalance from "../../components/transaction-resume-balance";
 import PizzaChart from "../../components/pizzachart";
 import SetValue from "../../components/modal-set-value";
 import { AiOutlinePlus } from "react-icons/ai";
+
 import {
   Container,
   RightContainer,
@@ -85,5 +86,4 @@ const Wallet = () => {
     </>
   );
 };
-
 export default Wallet;
