@@ -8,11 +8,9 @@ import {
   StyledLogoutButton,
   LogoAndTitleContainer,
 } from "./styles";
-
 import logo from "../../assets/img/logo.svg";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { userAllowed } from "../../store/modules/authenticated-user/actions";
 

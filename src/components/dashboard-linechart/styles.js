@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h3 {
     color: white;
     margin: 3% 3%;

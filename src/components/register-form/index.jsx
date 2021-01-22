@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import jwt_decode from "jwt-decode";
-
 import { FormContainer, InputContainer, LabelStyled } from "./styles";
 import SnackbarAlert from "../snackbarAlert";
 
@@ -38,7 +37,6 @@ const RegisterForm = () => {
     axios
       .post("https://meucapital.herokuapp.com/register", data)
       .then((res) => {
-        console.log(res.data);
         let token = res.data.accessToken;
         let decoded = jwt_decode(token);
 
@@ -83,7 +81,6 @@ const RegisterForm = () => {
             axios.post(urlGoals, requestGoals3, header),
           ])
           .then((responseArr) => {
-            responseArr.forEach((res) => console.log(res));
             setOpen(true);
             setTimeout(() => {
               history.push("/login");

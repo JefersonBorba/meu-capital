@@ -1,9 +1,8 @@
 import { Container, Content, Card } from "./styles";
-import alimentacao from "../../assets/alimentacao.svg";
+import alimentacao from "../../assets/icons/alimentacao.svg";
 import { useSelector } from "react-redux";
 
 const ResumeTransaction = () => {
-  const exemple = [1, 2, 3, 4, 5, 6];
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);
 

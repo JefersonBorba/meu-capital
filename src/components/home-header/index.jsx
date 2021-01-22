@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { userAllowed } from "../../store/modules/authenticated-user/actions";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
-
 import SplitButton from "./split-button";
 
 const HomeHeader = () => {

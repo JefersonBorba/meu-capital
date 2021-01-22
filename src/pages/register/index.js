@@ -12,4 +12,5 @@ const Register = () => {
     </StyledFade>
   );
 };
+
 export default Register;

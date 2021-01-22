@@ -4,7 +4,6 @@ import {
   StyledTextContainer,
   StyledImageContainer,
 } from "./styles";
-
 import { Slide } from "react-awesome-reveal";
 
 const HomeContent = ({ img, alt, title, paragraph, variant = false }) => {

@@ -1,9 +1,9 @@
 import { StyledDiv } from "./styles";
-import abdiel from "../../assets/img/abdiel.jpeg";
-import eduardo from "../../assets/img/eduardo.jpeg";
-import felipe from "../../assets/img/felipe.jpeg";
-import jeferson from "../../assets/img/jeferson.jpeg";
-import rafael from "../../assets/img/rafael.jpeg";
+import abdiel from "../../assets/team/abdiel.jpeg";
+import eduardo from "../../assets/team/eduardo.jpeg";
+import felipe from "../../assets/team/felipe.jpeg";
+import jeferson from "../../assets/team/jeferson.jpeg";
+import rafael from "../../assets/team/rafael.jpeg";
 
 const HomeAvatar = () => {
   return (
@@ -14,7 +14,6 @@ const HomeAvatar = () => {
         <a href="#slide-3">3</a>
         <a href="#slide-4">4</a>
         <a href="#slide-5">5</a>
-
         <div class="slides">
           <div id="slide-1">
             <img src={abdiel} alt="abdiel" />

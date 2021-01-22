@@ -1,5 +1,6 @@
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
 import { useSelector } from "react-redux";
+
 const PizzaChart = () => {
   const selectUser = (state) => state.user;
   const userData = useSelector(selectUser);

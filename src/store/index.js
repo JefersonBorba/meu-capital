@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 const reducers = combineReducers({
   user: authenticatedUserReducer,
   isAllowed: userAllowedReducer,
-  userLoginFailed:userLoginFailedReducer,
+  userLoginFailed: userLoginFailedReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));
